@@ -1,6 +1,7 @@
 package ec.edu.uce.pokedex.DataCharge;
 
 import ec.edu.uce.pokedex.Observer.CargaDatosListener;
+import ec.edu.uce.pokedex.Service.TypesService;
 import ec.edu.uce.pokedex.jpa.Types;
 import ec.edu.uce.pokedex.repositories.TypesRepository;
 import org.apache.http.HttpEntity;
@@ -26,7 +27,7 @@ public class DriverTypes {
     private CargaDatosListener cargaDatosMoveListener; // Observer
 
     @Autowired
-    private TypesRepository typesRepository;
+    private TypesService typesService;
 
 
 
@@ -52,7 +53,7 @@ public class DriverTypes {
             // Procesar en paralelo
             typeList.stream().parallel().forEach(tipo->executorService.execute(()->{
                 Types newType = new Types(typeList.indexOf(tipo) + 1,tipo.optString("name"));
-                        typesRepository.save(newType);
+                        typesService.saveTypes(newType);
                     }));
             // Cerrar el pool de hilos y esperar a ue finalicen
             executorService.shutdown();

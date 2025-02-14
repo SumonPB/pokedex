@@ -1,6 +1,7 @@
 package ec.edu.uce.pokedex.DataCharge;
 
 import ec.edu.uce.pokedex.Observer.CargaDatosListener;
+import ec.edu.uce.pokedex.Service.*;
 import ec.edu.uce.pokedex.jpa.*;
 import ec.edu.uce.pokedex.repositories.*;
 import org.json.JSONArray;
@@ -19,17 +20,17 @@ public class DriverPokemon {
     private final RestTemplate restTemplate;
     private final ExecutorService executorService;
     @Autowired
-    private PokemonRepository pokemonRepository;
+    private PokemonService pokemonService;
     @Autowired
-    private TypesRepository typesRepository;
+    private TypesService typesService;
     @Autowired
-    HabitatRepository habitatRepository;
+    private HabitatService habitatService;
     @Autowired
-    RegionRepository regionRepository;
+    private RegionService regionService;
     @Autowired
-    MoveRepository moveRepository;
+    private MoveService moveService;
     @Autowired
-    AbilitiesRepository abilitiesRepository;
+    private AbilitiesService abilitiesService;
 
     private CargaDatosListener cargaDatosMoveListener; // Observer
     // Configurar el Listener
@@ -188,48 +189,30 @@ public class DriverPokemon {
                         }
                     }
                     if (habitatId != null) {
-                        Optional<Habitat> newHabitat = habitatRepository.findById(habitatId);
-                        if (newHabitat.isPresent()) {
-                            nuevoPokemon.setHabitat(newHabitat.get());
-                        } else {
-                            throw new RuntimeException("Habitat con ID " + habitatId + " no encontrado.");
-                        }
+                        Habitat newHabitat = habitatService.findById(habitatId);
+                            nuevoPokemon.setHabitat(newHabitat);
                     }
 
                     List<Types> tiposList = new ArrayList<>();
                     for (Integer typeId : typeIds) {
-                        Optional<Types> newTypes = typesRepository.findById(typeId);
-
-                        // Verificar si el tipo existe antes de acceder a su valor
-                        if (newTypes.isPresent()) {
-                            tiposList.add(newTypes.get());
-                        } else {
-                            // Manejar el caso si no se encuentra el tipo
-                            System.out.println("Tipo con ID " + typeId + " no encontrado.");
-                        }
+                        Types newTypes = typesService.findById(typeId);
+                         tiposList.add(newTypes);
                     }
                     List<Region> regionesList = new ArrayList<>();
                     for (Integer regiones : regionIds) {
-                        Optional<Region> newRegion = regionRepository.findById(regiones);
-                        if (newRegion.isPresent()) {
-                            regionesList.add(newRegion.get());
-                        }
+                        Region newRegion = regionService.findById(regiones);
+                            regionesList.add(newRegion);
                     }
-
                     List<Move> movimientoList = new ArrayList<>();
                     for (Integer movimientos : moveIds) {
-                        Optional<Move> newMove = moveRepository.findById(movimientos);
-                        if (newMove.isPresent()) {
-                            movimientoList.add(newMove.get());
-                        }
+                        Move newMove = moveService.findById(movimientos);
+                            movimientoList.add(newMove);
                     }
 
                     List<Abilities> abilidadesList = new ArrayList<>();
                     for (Integer abilidades : abilityIds) {
-                        Optional<Abilities> newAbilidades = abilitiesRepository.findById(abilidades);
-                        if (newAbilidades.isPresent()) {
-                            abilidadesList.add(newAbilidades.get());
-                        }
+                        Abilities newAbilidades = abilitiesService.findById(abilidades);
+                            abilidadesList.add(newAbilidades);
                     }
 
                     nuevoPokemon.setAbilities(abilidadesList);
@@ -237,7 +220,7 @@ public class DriverPokemon {
                     nuevoPokemon.setRegions(regionesList);
                     nuevoPokemon.setTypes(tiposList);
                     nuevoPokemon.setEnvoles(evolutionIds);
-                    pokemonRepository.save(nuevoPokemon);
+                    pokemonService.savePokemon(nuevoPokemon);
                     return null;
                 });
             });

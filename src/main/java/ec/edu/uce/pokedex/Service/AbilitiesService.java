@@ -18,8 +18,10 @@ public class AbilitiesService {
         this.abilitiesRepository = abilitiesRepository;
     }
 
-    public List<Abilities> findAbilitiesByName(String name) {
-        return abilitiesRepository.findAbilitiesByName(name);
+    public void saveAbilities (Abilities abilities) {
+        abilitiesRepository.save(abilities);
     }
-
+    public Abilities findById(int id) {
+        return abilitiesRepository.findById(id).get();
+    }
 }

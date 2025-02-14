@@ -1,6 +1,7 @@
 package ec.edu.uce.pokedex.DataCharge;
 
 import ec.edu.uce.pokedex.Observer.CargaDatosListener;
+import ec.edu.uce.pokedex.Service.AbilitiesService;
 import ec.edu.uce.pokedex.jpa.Abilities;
 import ec.edu.uce.pokedex.repositories.AbilitiesRepository;
 import org.apache.http.HttpEntity;
@@ -26,7 +27,7 @@ public class DriveAbility {
     private CargaDatosListener cargaDatosMoveListener; // Observer
 
     @Autowired
-    private AbilitiesRepository abilitiesRepository;
+    private AbilitiesService abilitiesService;
 
     public DriveAbility() {
         // Crear un pool de hilos con un número fijo de hilos
@@ -55,7 +56,7 @@ public class DriveAbility {
                 // Obtener el nombre y ID de la habilidad
                 // Crear y mostrar la habilidad
                 Abilities abiliti = new Abilities(abilityList.indexOf(abilitys) + 1, abilitys.optString("name"));
-                abilitiesRepository.save(abiliti);
+                abilitiesService.saveAbilities(abiliti);
             }));
             // Cerrar el pool de hilos y esperar a que finalicen
             executorService.shutdown();

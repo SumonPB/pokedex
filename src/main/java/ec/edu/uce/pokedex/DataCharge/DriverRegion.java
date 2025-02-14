@@ -1,6 +1,7 @@
 package ec.edu.uce.pokedex.DataCharge;
 
 import ec.edu.uce.pokedex.Observer.CargaDatosListener;
+import ec.edu.uce.pokedex.Service.RegionService;
 import ec.edu.uce.pokedex.jpa.Move;
 import ec.edu.uce.pokedex.jpa.Region;
 import ec.edu.uce.pokedex.repositories.RegionRepository;
@@ -27,7 +28,7 @@ public class DriverRegion {
     private CargaDatosListener cargaDatosMoveListener; // Observer
 
     @Autowired
-    private RegionRepository regionRepository;
+    private RegionService regionService;
 
     // Configurar el Listener
     public void setCargaDatosListener(CargaDatosListener listener) {
@@ -53,7 +54,7 @@ public class DriverRegion {
             // Procesar en paralelo
             regionList.stream().parallel().forEach(regions -> executor.execute(()->{
                         Region newRegion = new Region(regionList.indexOf(regions) + 1,regions.optString("name"));
-                        regionRepository.save(newRegion);
+                        regionService.saveRegion(newRegion);
                     }));
             // Cerrar el pool de hilos y esperar a que finalicen
             executor.shutdown();
@@ -87,10 +88,5 @@ public class DriverRegion {
             e.printStackTrace();
             return null;
         }
-    }
-
-    @Autowired
-    public void setRegionRepository(RegionRepository regionRepository) {
-        this.regionRepository = regionRepository;
     }
 }

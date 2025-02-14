@@ -10,8 +10,4 @@ import java.util.List;
 
 @Repository
 public interface RegionRepository extends JpaRepository<Region, Integer> {
-    Region findById(int id);
-
-    @Query("SELECT r FROM Region r WHERE LOWER(r.name) LIKE LOWER(CONCAT('%', :name, '%'))")
-    List<Region> findRegionsByName(@Param("name") String name);
 }

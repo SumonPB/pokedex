@@ -10,9 +10,4 @@ import java.util.List;
 
 @Repository
 public interface HabitatRepository extends JpaRepository<Habitat, Integer> {
-    Habitat findById(int id);
-
-    @Query("SELECT h FROM Habitat h WHERE LOWER(h.name) LIKE LOWER(CONCAT('%', :name, '%'))")
-    List<Habitat> findHabitatByName(@Param("name") String name);
-
 }

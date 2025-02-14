@@ -1,6 +1,7 @@
 package ec.edu.uce.pokedex.DataCharge;
 
 import ec.edu.uce.pokedex.Observer.CargaDatosListener;
+import ec.edu.uce.pokedex.Service.MoveService;
 import ec.edu.uce.pokedex.jpa.Move;
 import ec.edu.uce.pokedex.repositories.MoveRepository;
 import org.apache.http.HttpEntity;
@@ -27,7 +28,7 @@ public class DriverMove {
     private CargaDatosListener cargaDatosMoveListener; // Observer
 
     @Autowired
-    private MoveRepository moveRepository;
+    private MoveService moveService;
 
     public DriverMove() {
         this.executorService = Executors.newFixedThreadPool(10);
@@ -50,7 +51,7 @@ public class DriverMove {
 
             moveList.forEach(mov -> executorService.execute(() -> {
                 Move newMove = new Move(moveList.indexOf(mov) + 1, mov.optString("name"));
-                moveRepository.save(newMove);
+                moveService.saveMove(newMove);
             }));
 
             // Cerrar el pool de hilos y esperar a que finalicen

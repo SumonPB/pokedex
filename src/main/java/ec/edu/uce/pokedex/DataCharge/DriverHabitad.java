@@ -1,6 +1,7 @@
 package ec.edu.uce.pokedex.DataCharge;
 
 import ec.edu.uce.pokedex.Observer.CargaDatosListener;
+import ec.edu.uce.pokedex.Service.HabitatService;
 import ec.edu.uce.pokedex.jpa.Habitat;
 import ec.edu.uce.pokedex.repositories.HabitatRepository;
 import org.apache.http.HttpEntity;
@@ -26,7 +27,7 @@ public class DriverHabitad {
     private CargaDatosListener cargaDatosMoveListener; // Observer
 
     @Autowired
-    private HabitatRepository habitatRepository;
+    private HabitatService habitatService;
 
     // Configurar el Listener
     public void setCargaDatosListener(CargaDatosListener listener) {
@@ -53,7 +54,7 @@ public class DriverHabitad {
 
             habitadList.stream().parallel().forEach(habita -> executorService.execute(()->{
                 Habitat newHabitat = new Habitat(habitadList.indexOf(habita)+1,habita.optString("name"));
-                habitatRepository.save(newHabitat);
+                habitatService.saveHabitad(newHabitat);
             }));
 
             executorService.shutdown();

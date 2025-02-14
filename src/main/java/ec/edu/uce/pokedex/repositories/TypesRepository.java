@@ -10,9 +10,5 @@ import java.util.List;
 
 @Repository
 public interface TypesRepository extends JpaRepository<Types, Integer> {
-    Types findById(int id);
-
-    @Query("SELECT t FROM Types t WHERE LOWER(t.name) LIKE LOWER(CONCAT('%', :name, '%'))")
-    List<Types> findTypesByName(@Param("name") String name);
 }
 

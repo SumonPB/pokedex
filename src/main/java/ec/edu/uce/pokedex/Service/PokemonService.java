@@ -18,4 +18,8 @@ public class PokemonService {
         return pokemonRepository.findAllPokemonIds();
     }
 
+    public void savePokemon(Pokemon pokemon) {
+        pokemonRepository.save(pokemon);
+    }
+
 }

@@ -10,8 +10,4 @@ import java.util.List;
 
 @Repository
 public interface MoveRepository extends JpaRepository<Move, Integer> {
-    Move findById(int id);
-
-    @Query("SELECT m FROM Move m WHERE LOWER(m.name) LIKE LOWER(CONCAT('%', :name, '%'))")
-    List<Move> findMovesByName(@Param("name") String name);
 }
