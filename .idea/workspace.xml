@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1524db48-afef-4d36-830a-4342caf7a5ab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriveAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriveAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriverHabitad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriverHabitad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriverMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriverMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriverPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriverPokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriverRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriverRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriverTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DataCharge/DriverTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/AbilitiesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/AbilitiesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/HabitatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/HabitatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/MoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/MoveService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Grafica/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Grafica/MainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/PokemonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/PokemonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/RegionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/RegionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/TypesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/TypesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/AbilitiesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/AbilitiesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/HabitatRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/HabitatRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/MoveRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/MoveRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/RegionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/RegionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/TypesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/TypesRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +129,7 @@
       <workItem from="1737961579789" duration="867000" />
       <workItem from="1739051540361" duration="145000" />
       <workItem from="1739051912161" duration="5000" />
-      <workItem from="1739547252372" duration="4764000" />
+      <workItem from="1739547252372" duration="8873000" />
     </task>
     <servers />
   </component>

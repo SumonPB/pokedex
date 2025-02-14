@@ -1,6 +1,7 @@
 package ec.edu.uce.pokedex.Grafica;
 
 import ec.edu.uce.pokedex.Observer.CargaDatosListener;
+import ec.edu.uce.pokedex.Service.PokemonService;
 import ec.edu.uce.pokedex.jpa.Habitat;
 import ec.edu.uce.pokedex.jpa.Pokemon;
 import ec.edu.uce.pokedex.jpa.Region;
@@ -22,8 +23,10 @@ import java.util.stream.Collectors;
 @Component
 public class MainWindow extends JFrame implements CargaDatosListener {
 
+    //@Autowired
+    //PokemonRepository pokemonRepository;
     @Autowired
-    PokemonRepository pokemonRepository;
+    PokemonService pokemonService;
     // Servicios
     private final DriverMove driverMoveService;
     private final DriveAbility driveAbilityService;
@@ -53,8 +56,8 @@ public class MainWindow extends JFrame implements CargaDatosListener {
     //@Autowired
     public MainWindow(DriverMove driverMoveService, DriveAbility driveAbilityService, DriverHabitad driverHabitadService,
                       DriverRegion driverRegionService, DriverTypes driverTypesService, DriverPokemon driverPokemonService,
-                      PokemonRepository pokemonRepository) {
-        this.pokemonRepository = pokemonRepository;
+                      PokemonService pokemonService) {
+        this.pokemonService = pokemonService;
         this.driverMoveService = driverMoveService;
         this.driveAbilityService = driveAbilityService;
         this.driverHabitadService = driverHabitadService;
@@ -200,10 +203,16 @@ public class MainWindow extends JFrame implements CargaDatosListener {
                 if (searchField.getText() != null && !searchField.getText().trim().isEmpty()){
                     String input = searchField.getText().trim(); // Obtener el texto del campo de búsqueda
                     Pokemon nuevaPokemon;
+
+                     // Buscar Pokémon de manera segura
+
                     try {
                         int numero = Integer.parseInt(input); // Intentamos convertirlo a un número entero
-                        nuevaPokemon = pokemonRepository.findById(numero);
+                        Optional<Pokemon> optionalPokemon = pokemonService.findById(numero);
+                        if (optionalPokemon.isPresent()) {
+                        nuevaPokemon = optionalPokemon.get();
                         pokemones.add(nuevaPokemon);
+                        }
                     } catch (NumberFormatException a) {
                     }
                 }else {
@@ -223,7 +232,7 @@ public class MainWindow extends JFrame implements CargaDatosListener {
                     if (selectionHabitat.equals("all habitats")) {
                         selectionHabitat = null;
                     }
-                    pokemones= pokemonRepository.findPokemonsByFilters(selectionType, selectionRegion, selectionAbility, selectionHabitat);
+                    pokemones= pokemonService.findPokemonsByFilters(selectionType, selectionRegion, selectionAbility, selectionHabitat);
 
                 }
 
@@ -243,8 +252,12 @@ public class MainWindow extends JFrame implements CargaDatosListener {
         loadPage();
         setVisible(true);
     }
-
     private void openFilterWindow(List<Pokemon> pokemonsList) {
+        if (pokemonsList == null || pokemonsList.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay Pokémon disponibles", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+            return;  // Salir si no hay Pokémon para mostrar
+        }
+
         AtomicInteger currentIndex = new AtomicInteger(0); // Definir el índice actual
 
         SwingUtilities.invokeLater(() -> {
@@ -333,88 +346,102 @@ public class MainWindow extends JFrame implements CargaDatosListener {
         });
     }
 
+
     private void updatePokemonDetails(int pokemonId, JLabel nameLabel, JLabel typeLabel, JLabel evolutionsLabel, JLabel iconLabel, JLabel[] statLabels, JLabel iconLabel1, JLabel iconLabel2, JLabel iconLabel3, JLabel textLabel1, JLabel textLabel2, JLabel textLabel3) {
         executor.submit(() -> {
-            Pokemon pokemon = pokemonRepository.findById(pokemonId);
-            String name = pokemon.getName();
+            Optional<Pokemon> optionalPokemon = pokemonService.findById(pokemonId);  // Buscar Pokémon de manera segura
+            if (optionalPokemon.isPresent()) {
+                Pokemon pokemon = optionalPokemon.get();
+                String name = pokemon.getName();
 
-            StringBuilder sb = new StringBuilder();
-            sb.append("Tipo: ");
-            for (Types types : pokemon.getTypes()) {
-                sb.append(types.getName()).append(" ");
-            }
-            String type = sb.toString();
-
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append("Evoluciones: ");
-            for (Integer evoluciones : pokemon.getEnvoles()) {
-                sb2.append(evoluciones).append(" ");
-            }
-            String evolutions = sb2.toString();
-
-            ImageIcon icon = fetchPokemonSprite(pokemonId);
-            ImageIcon icon1, icon2, icon3;
-            if (pokemon.getEnvoles().size() == 3) {
-                icon1 =fetchPokemonSprite(pokemon.getEnvoles().get(0));
-                icon2 =fetchPokemonSprite(pokemon.getEnvoles().get(1));
-                icon3 =fetchPokemonSprite(pokemon.getEnvoles().get(2));
-            }else {
-                icon1 = fetchPokemonSprite(pokemon.getEnvoles().get(0));
-                icon2 = fetchPokemonSprite(10000);
-                icon3 = fetchPokemonSprite(pokemon.getEnvoles().get(1));
-
-            }
-            List<Pokemon> evolesName = new ArrayList<>();
-            for (Integer evolucion : pokemon.getEnvoles()) {
-                Pokemon pokemonEvolesName = pokemonRepository.findById(evolucion).get();
-                evolesName.add(pokemonEvolesName);
-                if(pokemon.getEnvoles().size()!=3){
-                    Pokemon pokemonEvolesName1 = null;
-                    evolesName.add(pokemonEvolesName1);
+                StringBuilder sb = new StringBuilder();
+                sb.append("Tipo: ");
+                for (Types types : pokemon.getTypes()) {
+                    sb.append(types.getName()).append(" ");
                 }
-            }
+                String type = sb.toString();
 
-            SwingUtilities.invokeLater(() -> {
-                // Limpiar las etiquetas antes de actualizarlas
-                nameLabel.setText("");
-                typeLabel.setText("");
-                evolutionsLabel.setText("");
-                iconLabel.setIcon(null);
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("Evoluciones: ");
+                for (Integer evoluciones : pokemon.getEnvoles()) {
+                    sb2.append(evoluciones).append(" ");
+                }
+                String evolutions = sb2.toString();
 
-                for (JLabel statLabel : statLabels) {
-                    statLabel.setText(""); // Limpiar las estadísticas
+                ImageIcon icon = fetchPokemonSprite(pokemonId);
+                ImageIcon icon1, icon2, icon3;
+                if (pokemon.getEnvoles().size() >= 1) {
+                    icon1 = fetchPokemonSprite(pokemon.getEnvoles().get(0));
+                } else {
+                    icon1 = fetchPokemonSprite(10000); // Fallback en caso de no tener evoluciones
+                }
+                if (pokemon.getEnvoles().size() >= 2) {
+                    icon2 = fetchPokemonSprite(pokemon.getEnvoles().get(1));
+                } else {
+                    icon2 = fetchPokemonSprite(10000); // Fallback en caso de no tener evoluciones
+                }
+                if (pokemon.getEnvoles().size() >= 3) {
+                    icon3 = fetchPokemonSprite(pokemon.getEnvoles().get(2));
+                } else {
+                    icon3 = fetchPokemonSprite(10000); // Fallback en caso de no tener evoluciones
                 }
 
-                iconLabel1.setIcon(null);
-                iconLabel2.setIcon(null);
-                iconLabel3.setIcon(null);
+                List<Pokemon> evolesName = new ArrayList<>();
+                for (Integer evolucion : pokemon.getEnvoles()) {
+                    Optional<Pokemon> pokemonEvolesName = pokemonService.findById(evolucion);
+                    pokemonEvolesName.ifPresent(evolesName::add);
+                }
 
-                // Actualizar los detalles con la nueva información
-                nameLabel.setText("Nombre: " + name);
-                typeLabel.setText(type);
-                evolutionsLabel.setText(evolutions);
-                iconLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
+                SwingUtilities.invokeLater(() -> {
+                    // Limpiar las etiquetas antes de actualizarlas
+                    nameLabel.setText("");
+                    typeLabel.setText("");
+                    evolutionsLabel.setText("");
+                    iconLabel.setIcon(null);
 
-                statLabels[0].setText("HP: " + pokemon.getStats_hp());
-                statLabels[1].setText("Ataque: " + pokemon.getStats_attack());
-                statLabels[2].setText("Defensa: " + pokemon.getStats_defense());
-                statLabels[3].setText("Atq. Esp.: " + pokemon.getStats_special_attack());
-                statLabels[4].setText("Def. Esp.: " + pokemon.getStats_special_defense());
-                statLabels[5].setText("Velocidad: " + pokemon.getStats_speed());
-                statLabels[6].setText("Precisión: " + pokemon.getStats_accuracy());
-                statLabels[7].setText("Evasión: " + pokemon.getStats_evasion());
+                    for (JLabel statLabel : statLabels) {
+                        statLabel.setText(""); // Limpiar las estadísticas
+                    }
 
-                iconLabel1.setIcon(new ImageIcon(icon1.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
-                iconLabel2.setIcon(new ImageIcon(icon2.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
-                iconLabel3.setIcon(new ImageIcon(icon3.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+                    iconLabel1.setIcon(null);
+                    iconLabel2.setIcon(null);
+                    iconLabel3.setIcon(null);
 
-                textLabel1.setText("ID: " + evolesName.get(0).getId() + " Nombre: " + evolesName.get(0).getName());
-                textLabel2.setText("ID: " + evolesName.get(1).getId() + " Nombre: " + evolesName.get(1).getName());
-                textLabel3.setText("ID: " + evolesName.get(2).getId() + " Nombre: " + evolesName.get(2).getName());
+                    // Actualizar los detalles con la nueva información
+                    nameLabel.setText("Nombre: " + name);
+                    typeLabel.setText(type);
+                    evolutionsLabel.setText(evolutions);
+                    iconLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(250, 250, Image.SCALE_SMOOTH)));
 
-                nameLabel.revalidate();
-                nameLabel.repaint();
-            });
+                    statLabels[0].setText("HP: " + pokemon.getStats_hp());
+                    statLabels[1].setText("Ataque: " + pokemon.getStats_attack());
+                    statLabels[2].setText("Defensa: " + pokemon.getStats_defense());
+                    statLabels[3].setText("Atq. Esp.: " + pokemon.getStats_special_attack());
+                    statLabels[4].setText("Def. Esp.: " + pokemon.getStats_special_defense());
+                    statLabels[5].setText("Velocidad: " + pokemon.getStats_speed());
+                    statLabels[6].setText("Precisión: " + pokemon.getStats_accuracy());
+                    statLabels[7].setText("Evasión: " + pokemon.getStats_evasion());
+
+                    iconLabel1.setIcon(new ImageIcon(icon1.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+                    iconLabel2.setIcon(new ImageIcon(icon2.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+                    iconLabel3.setIcon(new ImageIcon(icon3.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+
+                    if (!evolesName.isEmpty()) {
+                        textLabel1.setText("ID: " + evolesName.get(0).getId() + " Nombre: " + evolesName.get(0).getName());
+                    }
+                    if (evolesName.size() > 1) {
+                        textLabel2.setText("ID: " + evolesName.get(1).getId() + " Nombre: " + evolesName.get(1).getName());
+                    }
+                    if (evolesName.size() > 2) {
+                        textLabel3.setText("ID: " + evolesName.get(2).getId() + " Nombre: " + evolesName.get(2).getName());
+                    }
+
+                    nameLabel.revalidate();
+                    nameLabel.repaint();
+                });
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró el Pokémon", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         });
     }
 
@@ -435,8 +462,10 @@ public class MainWindow extends JFrame implements CargaDatosListener {
             cardPanel.setBackground(new Color(255, 250, 205)); // Amarillo claro
             cardPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
-            // Recuperamos el Pokémon de la base de datos
-            Pokemon nuevoPokemon = pokemonRepository.findById(pokemonId);
+
+
+            Optional<Pokemon> optionalPokemon = pokemonService.findById(pokemonId);  // Buscar Pokémon de manera segura
+            Pokemon nuevoPokemon = optionalPokemon.get();
 
             // Panel para el ID del Pokémon
             JPanel idPanel = new JPanel();
@@ -520,7 +549,9 @@ public class MainWindow extends JFrame implements CargaDatosListener {
 
     private void showPokemonDetails(int pokemonId) {
         executor.submit(() -> {
-            Pokemon pokemon = pokemonRepository.findById(pokemonId);
+
+            Optional<Pokemon> optionalPokemon = pokemonService.findById(pokemonId);  // Buscar Pokémon de manera segura
+            Pokemon pokemon = optionalPokemon.get();
             String name = pokemon.getName();
 
             // Tipo
@@ -540,7 +571,7 @@ public class MainWindow extends JFrame implements CargaDatosListener {
             String evolutions = sb2.toString();
 
             // Características (izquierda)
-            Optional<Pokemon> pokemon1 = pokemonRepository.findByIdAndLoadHabitatAndRegions(pokemonId);
+            Optional<Pokemon> pokemon1 = pokemonService.findByIdAndLoadHabitatAndRegions(pokemonId);
             String height = "Altura: " + pokemon1.get().getHeight();
             String weight = "Peso: " + pokemon1.get().getWeight();
             StringBuilder sb3 = new StringBuilder();
@@ -588,11 +619,13 @@ public class MainWindow extends JFrame implements CargaDatosListener {
             }
             List<Pokemon> evolesName = new ArrayList<>();
             for (Integer evolucion : pokemon.getEnvoles()) {
-                Pokemon pokemonEvolesName = pokemonRepository.findById(evolucion).get();
+
+                Optional<Pokemon> optionalPokemon2 = pokemonService.findById(evolucion);  // Buscar Pokémon de manera segura
+                Pokemon pokemonEvolesName = optionalPokemon.get();
                 evolesName.add(pokemonEvolesName);
                 if(pokemon.getEnvoles().size()!=3){
-                    Pokemon pokemonEvolesName1 = pokemonRepository.findById(pokemon.getEnvoles().get(0)).get();
-                    evolesName.add(pokemonEvolesName1);
+                    Optional<Pokemon> optionalPokemon3 = pokemonService.findById(pokemon.getEnvoles().get(0));  // Buscar Pokémon de manera segura
+                    Pokemon pokemonEvolesName1 = optionalPokemon.get();
                 }
             }
 
