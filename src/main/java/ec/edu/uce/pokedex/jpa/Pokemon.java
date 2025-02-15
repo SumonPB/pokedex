@@ -250,4 +250,28 @@ public class Pokemon {
         this.stats_evasion = stats_evasion;
         this.envoles = envoles;
     }
+
+    @Override
+    public String toString() {
+        return "Pokemon{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", stats_hp=" + stats_hp +
+                ", stats_attack=" + stats_attack +
+                ", stats_defense=" + stats_defense +
+                ", stats_special_attack=" + stats_special_attack +
+                ", stats_special_defense=" + stats_special_defense +
+                ", stats_speed=" + stats_speed +
+                ", stats_accuracy=" + stats_accuracy +
+                ", stats_evasion=" + stats_evasion +
+                ", envoles=" + envoles +
+                ", types=" + types +
+                ", habitat=" + habitat +
+                ", regions=" + regions +
+                ", moves=" + moves +
+                ", abilities=" + abilities +
+                '}';
+    }
 }

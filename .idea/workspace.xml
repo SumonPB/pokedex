@@ -5,10 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1524db48-afef-4d36-830a-4342caf7a5ab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DAO/PokemonDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DTO/PokemonDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Grafica/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Grafica/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/PokedexApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/PokedexApiApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/PokemonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/PokemonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/jpa/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/jpa/Pokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/PokemonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/PokemonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/PokedexApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/PokedexApiApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Service/PokemonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Service/PokemonService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/jpa/Pokemon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/jpa/Pokemon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/repositories/PokemonRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/repositories/PokemonRepository.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +50,12 @@
     &quot;assignee&quot;: &quot;ByronCondolo&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ByronCondolo/pokedex.git",
-    "accountId": "f78ae160-3862-4a5a-b779-b79275d042bc"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ByronCondolo/pokedex.git&quot;,
+    &quot;accountId&quot;: &quot;f78ae160-3862-4a5a-b779-b79275d042bc&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -57,34 +70,35 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.DriverPokemon.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.PokedexApiApplication.executor&quot;: &quot;Run&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;254&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Sumon/Downloads/JFormDesigner-8.2.4-intellij-idea.zip&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DriverPokemon.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.PokedexApiApplication.executor": "Run",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "254",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Sumon/Desktop/UCE/6to/PrograAvanzadaII/funcional",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Sumon\Desktop\UCE\6to\PrograAvanzadaII\pokedex\src\main\resources\pokemon_sprites" />
@@ -129,7 +143,9 @@
       <workItem from="1737961579789" duration="867000" />
       <workItem from="1739051540361" duration="145000" />
       <workItem from="1739051912161" duration="5000" />
-      <workItem from="1739547252372" duration="8873000" />
+      <workItem from="1739547252372" duration="9025000" />
+      <workItem from="1739633045454" duration="814000" />
+      <workItem from="1739635030744" duration="16443000" />
     </task>
     <servers />
   </component>

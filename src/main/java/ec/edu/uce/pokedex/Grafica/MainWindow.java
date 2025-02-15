@@ -1,5 +1,5 @@
 package ec.edu.uce.pokedex.Grafica;
-
+/*
 import ec.edu.uce.pokedex.Observer.CargaDatosListener;
 import ec.edu.uce.pokedex.Service.PokemonService;
 import ec.edu.uce.pokedex.jpa.Habitat;
@@ -792,4 +792,5 @@ public class MainWindow extends JFrame implements CargaDatosListener {
             System.out.println("¡Todos los drivers han terminado la carga!");
         }
     }
-}
+
+}*/

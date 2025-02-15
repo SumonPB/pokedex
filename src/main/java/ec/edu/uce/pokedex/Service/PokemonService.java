@@ -22,10 +22,10 @@ public class PokemonService {
         pokemonRepository.save(pokemon);
     }
 
-    // Cambiar aquí para devolver Optional<Pokemon>
     public Optional<Pokemon> findById(int id) {
-        return Optional.ofNullable(pokemonRepository.findById(id));  // Devuelve un Optional
+        return Optional.ofNullable(pokemonRepository.findById(id));
     }
+
 
     public Optional<Pokemon> findByIdAndLoadHabitatAndRegions(int id){
         return pokemonRepository.findByIdAndLoadHabitatAndRegions(id);
@@ -33,6 +33,9 @@ public class PokemonService {
 
     public List<Pokemon> findPokemonsByFilters(String type,String region,String ability,String habitat) {
         return pokemonRepository.findPokemonsByFilters(type, region, ability, habitat);
+    }
+    public long nPokemones(){
+        return pokemonRepository.count();
     }
 
 }
