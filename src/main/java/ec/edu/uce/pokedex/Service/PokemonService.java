@@ -25,6 +25,9 @@ public class PokemonService {
     public Optional<Pokemon> findById(int id) {
         return Optional.ofNullable(pokemonRepository.findById(id));
     }
+    public Optional<Pokemon> findByName(String name) {
+        return pokemonRepository.findByName(name);
+    }
 
 
     public Optional<Pokemon> findByIdAndLoadHabitatAndRegions(int id){

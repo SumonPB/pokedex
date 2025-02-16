@@ -141,5 +141,14 @@ public class PokemonDTO {
         PokemonDTO pokemonDTO = pokemonDAO.buscarPokemon(id);
         return pokemonDTO;
     }
+    public PokemonDTO buscarByName(String name) {
+        PokemonDTO pokemonDTO = pokemonDAO.buscarByNombre(name);
+        return pokemonDTO;
+    }
+    public List<PokemonDTO> findPokemonsByFilters(String type, String region, String ability, String habitat){
+
+        List<PokemonDTO> pokemonDTO = pokemonDAO.findPokemonsByFilters(type, region, ability, habitat);
+        return pokemonDTO;
+    }
 
 }

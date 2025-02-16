@@ -43,5 +43,8 @@ public interface PokemonRepository extends JpaRepository<Pokemon, Integer> {
     @Query("SELECT p FROM Pokemon p WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))")
     List<Pokemon> findPokemonsByName(@Param("name") String name);
 
+    @Query("SELECT p FROM Pokemon p WHERE LOWER(p.name) = LOWER(:name)")
+    Optional<Pokemon> findByName(@Param("name") String name);
+
     long count();
 }

@@ -11,6 +11,26 @@
 <h1 class="title">Pokedex - Detalles del Pokemon</h1>
 
 <div>
+    <!-- Buscar por ID -->
+    <form th:action="@{/pokedex/pokemon}" method="get">
+        <input type="number" name="id" min="1" th:value="${pokemon.id}" placeholder="Ingrese ID de Pokémon" required>
+        <button type="submit">Buscar por ID</button>
+    </form>
+
+    <!-- Buscar por Nombre -->
+    <form th:action="@{/pokedex/pokemon}" method="get">
+        <input type="text" name="name" placeholder="Ingrese Nombre de Pokémon" required>
+        <button type="submit">Buscar por Nombre</button>
+    </form>
+</div>
+
+<div>
+    <a th:href="@{/pokedex/pokemon/filter(type='water', region='kanto', habitat='cave')}">
+        <button>Busqueda</button>
+    </a>
+</div>
+
+<div>
     <h2>Pokemon Details</h2>
     <p><strong>Id:</strong> <span th:text="${pokemon.id}"></span></p>
     <p><strong>Name:</strong> <span th:text="${pokemon.name}"></span></p>
@@ -39,6 +59,15 @@
     </div>
 
     <div>
+        <a th:href="@{/pokedex/pokemon(id=${prevId})}">
+            <button>Anterior</button>
+        </a>
+        <a th:href="@{/pokedex/pokemon(id=${nextId})}">
+            <button>Siguiente</button>
+        </a>
+    </div>
+
+    <div>
         <h3>Imágenes del Pokémon:</h3>
         <div th:each="envolo : ${pokemon.envoles}">
             <img th:src="@{'/pokemon_sprites/' + ${envolo} + '.png'}" alt="Pokemon Image" />
@@ -46,6 +75,7 @@
     </div>
 
 </div>
+
 
 </body>
 </html>

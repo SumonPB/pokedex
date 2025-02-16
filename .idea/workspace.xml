@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1524db48-afef-4d36-830a-4342caf7a5ab" name="Changes" comment="" />
+    <list default="true" id="1524db48-afef-4d36-830a-4342caf7a5ab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pokemonList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Controller/PokemonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Controller/PokemonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DAO/PokemonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DAO/PokemonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DTO/PokemonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DTO/PokemonDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/PokemonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/PokemonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/PokemonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/PokemonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Controller/PokemonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Controller/PokemonController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/DAO/PokemonDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/DAO/PokemonDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/DTO/PokemonDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/DTO/PokemonDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Service/PokemonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Service/PokemonService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/repositories/PokemonRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/repositories/PokemonRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +30,8 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -139,6 +154,8 @@
       <workItem from="1739635030744" duration="17318000" />
       <workItem from="1739668924954" duration="9382000" />
       <workItem from="1739678927060" duration="32000" />
+      <workItem from="1739715165098" duration="3967000" />
+      <workItem from="1739726398660" duration="6439000" />
     </task>
     <servers />
   </component>

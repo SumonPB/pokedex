@@ -15,6 +15,8 @@ public class PokemonDAO {
     @Autowired
     private PokemonService pokemonService;
 
+
+
     private int id;
     private String name;
     private int height;
@@ -264,13 +266,51 @@ public class PokemonDAO {
         return pokemonDTO;
     }
 //evoluciones
-
+    //busqueda por ID
     public PokemonDTO buscarPokemon(int idPokemon){
         Optional<Pokemon> pokemon = pokemonService.findById(idPokemon);
+       PokemonDTO pokemonDTO = toDTO(toDAO(pokemon));
+        return pokemonDTO;
+    }
+    //Busqueda por Nombre
+    public PokemonDTO buscarByNombre(String nombre){
+        Optional<Pokemon> pokemon = pokemonService.findByName(nombre);
         PokemonDTO pokemonDTO = toDTO(toDAO(pokemon));
         return pokemonDTO;
     }
 
+    public List<PokemonDTO> findPokemonsByFilters(String type, String region, String ability, String habitat) {
+
+        if (type=="") {
+            type=null;
+        }
+        if (region=="") {
+            region=null;
+        }
+        if (ability=="") {
+            ability=null;
+        }
+        if (habitat=="") {
+            habitat=null;
+        }
+
+        // Obtener la lista de Pokémon sin necesidad de Optional
+        List<Pokemon> pokemons = pokemonService.findPokemonsByFilters(type, region,null,habitat);
+        // Verificar si la lista está vacía
+        if (pokemons.isEmpty()) {
+            return new ArrayList<>(); // Retorna una lista vacía si no hay Pokémon
+        }
+
+        // Convertir la lista de Pokémon a DTOs
+        List<PokemonDTO> pokemonDTOs = new ArrayList<>();
+        for (Pokemon pokemon : pokemons) {
+
+            PokemonDTO pokemonDTO = toDTO(toDAO(Optional.ofNullable(pokemon)));
+            pokemonDTOs.add(pokemonDTO);
+        }
+
+        return pokemonDTOs;
+    }
 
 
 }

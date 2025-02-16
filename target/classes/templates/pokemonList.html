@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:href="@{/style.css}" rel="stylesheet" type="text/css">
+  <title>Lista de Pokémon</title>
+</head>
+<body>
+
+<h1>Pokedex - Lista de Pokémon</h1>
+
+<!-- Formulario para filtros -->
+<form action="/pokedex/pokemon/filter" method="get">
+  <label for="type">Tipo:</label>
+  <select name="type" id="type">
+    <option value="">Seleccione un tipo</option>
+    <option value="fire">Fuego</option>
+    <option value="water">Agua</option>
+    <option value="grass">Planta</option>
+    <!-- Añadir más tipos según sea necesario -->
+  </select>
+
+  <label for="region">Región:</label>
+  <select name="region" id="region">
+    <option value="">Seleccione una región</option>
+    <option value="kanto">Kanto</option>
+    <option value="johto">Johto</option>
+    <option value="sinnoh">Sinnoh</option>
+    <!-- Añadir más regiones según sea necesario -->
+  </select>
+
+  <label for="habitat">Hábitat:</label>
+  <select name="habitat" id="habitat">
+    <option value="">Seleccione un hábitat</option>
+    <option value="forest">Bosque</option>
+    <option value="cave">Cueva</option>
+    <option value="mountain">Montaña</option>
+    <!-- Añadir más hábitats según sea necesario -->
+  </select>
+
+  <button type="submit">Buscar</button>
+</form>
+
+<!-- Mostrar la lista de Pokémon -->
+<div>
+  <h2>Pokémon encontrados:</h2>
+
+  <div th:if="${#lists.isEmpty(pokemons)}">
+    <p>No se han encontrado Pokémon con los filtros seleccionados.</p>
+  </div>
+
+  <div th:if="${not #lists.isEmpty(pokemons)}">
+    <ul>
+      <li th:each="pokemon : ${pokemons}">
+        <div>
+          <h3 th:text="${pokemon.name}"></h3>
+          <p><strong>ID:</strong> <span th:text="${pokemon.id}"></span></p>
+          <p><strong>Tipo:</strong> <span th:text="${pokemon.types}"></span></p>
+          <p><strong>Región:</strong> <span th:text="${pokemon.regions}"></span></p>
+          <p><strong>Hábitat:</strong> <span th:text="${pokemon.habitat}"></span></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
