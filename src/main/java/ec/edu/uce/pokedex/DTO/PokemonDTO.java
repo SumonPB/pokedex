@@ -137,63 +137,9 @@ public class PokemonDTO {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "PokemonDTO{" +
-                "\n id=" + id +
-                "\n name='" + name +
-                "\n height=" + height +
-                "\n weight=" + weight +
-                "\n stats_hp=" + stats_hp +
-                "\n stats_attack=" + stats_attack +
-                "\n stats_defense=" + stats_defense +
-                "\n stats_special_attack=" + stats_special_attack +
-                "\n stats_special_defense=" + stats_special_defense +
-                "\n stats_speed=" + stats_speed +
-                "\n stats_accuracy=" + stats_accuracy +
-                "\n stats_evasion=" + stats_evasion +
-                "\n Habitad= "+habitat +
-                "\n regions=" + printRegions() +
-                "\n pokemons=" + EnvolesToString() +
-                "\n Tipos="+ printTypes()+
-                '}';
-    }
-
-    public String EnvolesToString() {
-        StringBuilder builder = new StringBuilder();
-        for (PokemonDTO pokemon : pokemons) {
-            builder.append("\n");
-            builder.append(pokemon.id);
-            builder.append("\n");
-            builder.append(pokemon.name);
-            builder.append("\n");
-        }
-        return builder.toString();
-    }
-    public String printTypes() {
-        StringBuilder builder = new StringBuilder();
-        for (String type : types) {
-            builder.append("\n");
-            builder.append(type);
-            builder.append("\n");
-        }
-        return builder.toString();
-    }
-
-    public String printRegions() {
-        StringBuilder builder = new StringBuilder();
-        for (String region : regions) {
-            builder.append("\n");
-            builder.append(region);
-            builder.append("\n");
-        }
-        return builder.toString();
-    }
-
-
-    public void pokemon(int id){
+    public PokemonDTO pokemon(int id){
         PokemonDTO pokemonDTO = pokemonDAO.buscarPokemon(id);
-        System.out.println(pokemonDTO.toString());
+        return pokemonDTO;
     }
 
 }

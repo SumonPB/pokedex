@@ -1,0 +1,17 @@
+body{
+    background: red;
+}
+:root {
+    --skin-color : green;
+    --border-stylee : 4px solid white;
+}
+body{
+    background-image: linear-gradient(white,#222,#333);
+    height: 1000px;
+    width: 500px;
+}
+.title {
+    text-align: center;
+    font-family: cursive;
+    display: flex;
+}

@@ -189,7 +189,7 @@ public class PokemonDAO {
                 }
             }
         }
-
+        pokemonDAO.setEnvoles(pokemon.getEnvoles());
         pokemonDAO.setPokemons(envolesPokemon);
         //Tipos name
         List<String> tiposName = new ArrayList<>();
@@ -206,8 +206,12 @@ public class PokemonDAO {
         }
         Pokemon pokemon2Carg = pokemon2.get();
         List<String> regionNames = new ArrayList<>();
-        for (Region region : pokemon2.get().getRegions()) {
-            regionNames.add(region.getName());
+        if (pokemon2.get().getRegions().isEmpty()){
+            regionNames.add("Ninguna");
+        }else {
+            for (Region region : pokemon2.get().getRegions()) {
+                regionNames.add(region.getName());
+            }
         }
         pokemonDAO.setRegions(regionNames);
         pokemonDAO.setHabitat(pokemon2Carg.getHabitat().getName());
@@ -243,7 +247,7 @@ public class PokemonDAO {
             envolesPokemon.add(envoleDTO);
         }
         pokemonDTO.setPokemons(envolesPokemon);
-
+        pokemonDTO.setEnvoles(pokemonDAO.getEnvoles());
         //fin evolucion
 
         //envoles
