@@ -31,30 +31,25 @@
         <button>Filtros</button>
     </a>
 </div>
+<div class="pokemon-grid">
+    <h2>Pokemon</h2>
+    <div><strong>Id:</strong> <span th:text="${pokemon.id}"></span></div>
+    <div><strong>Name:</strong> <span th:text="${pokemon.name}"></span></div>
+    <div><strong>Height:</strong> <span th:text="${pokemon.height}"></span> m</div>
+    <div><strong>Weight:</strong> <span th:text="${pokemon.weight}"></span> kg</div>
+    <div><strong>HP:</strong> <span th:text="${pokemon.stats_hp}"></span></div>
+    <div><strong>Attack:</strong> <span th:text="${pokemon.stats_attack}"></span></div>
+    <div><strong>Defense:</strong> <span th:text="${pokemon.stats_defense}"></span></div>
+    <div><strong>Special Attack:</strong> <span th:text="${pokemon.stats_special_attack}"></span></div>
+    <div><strong>Special Defense:</strong> <span th:text="${pokemon.stats_special_defense}"></span></div>
+    <div><strong>Speed:</strong> <span th:text="${pokemon.stats_speed}"></span></div>
+    <div><strong>Accuracy:</strong> <span th:text="${pokemon.stats_accuracy}"></span></div>
+    <div><strong>Evasion:</strong> <span th:text="${pokemon.stats_evasion}"></span></div>
+    <div><strong>Habitat:</strong> <span th:text="${pokemon.habitat}"></span></div>
+    <div><strong>Tipo:</strong> <span th:text="${pokemon.types}"></span></div>
+    <div><strong>Región:</strong> <span th:text="${pokemon.regions}"></span></div>
+</div>
 
-<div>
-    <h2>Pokemon Details</h2>
-    <p><strong>Id:</strong> <span th:text="${pokemon.id}"></span></p>
-    <p><strong>Name:</strong> <span th:text="${pokemon.name}"></span></p>
-    <p><strong>Height:</strong> <span th:text="${pokemon.height}"></span> m</p>
-    <p><strong>Weight:</strong> <span th:text="${pokemon.weight}"></span> kg</p>
-    <p><strong>HP:</strong> <span th:text="${pokemon.stats_hp}"></span></p>
-    <p><strong>Attack:</strong> <span th:text="${pokemon.stats_attack}"></span></p>
-    <p><strong>Defense:</strong> <span th:text="${pokemon.stats_defense}"></span></p>
-    <p><strong>Special Attack:</strong> <span th:text="${pokemon.stats_special_attack}"></span></p>
-    <p><strong>Special Defense:</strong> <span th:text="${pokemon.stats_special_defense}"></span></p>
-    <p><strong>Speed:</strong> <span th:text="${pokemon.stats_speed}"></span></p>
-    <p><strong>Accuracy:</strong> <span th:text="${pokemon.stats_accuracy}"></span></p>
-    <p><strong>Evasion:</strong> <span th:text="${pokemon.stats_evasion}"></span></p>
-    <p><strong>Habitat:</strong> <span th:text="${pokemon.habitat}"></span></p>
-    <div>
-        <p><strong>Tipo:</strong> <span th:text="${pokemon.types}"></span></p>
-    </div>
-    <div>
-        <p><strong>Región:</strong> <span th:text="${pokemon.regions}"></span></p>
-    </div>
-
-    <div>
         <a th:href="@{/pokedex/pokemon(id=${prevId})}">
             <button>Anterior</button>
         </a>

@@ -86,4 +86,30 @@ body{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 25px;
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    width: fit-content;
+    margin: 0 auto;
+    height: auto; /* La altura se ajusta automáticamente al contenido */
+}
 
+.pokemon-grid div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    align-items: center; /* Asegura que el contenido esté centrado verticalmente */
+    height: 150px; /* Ajuste de la altura de los elementos dentro de la cuadrícula */
+}
+
+.pokemon-grid h2 {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}

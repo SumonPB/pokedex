@@ -44,6 +44,12 @@ body{
     font-family: cursive;
     color: white;
 }
+/* Efecto al pasar el cursor */
+.Busqueda button:hover {
+    background: radial-gradient(circle, rgba(70,95,252,1) 0%, rgba(75,115,213,1) 34%, rgba(83,82,179,1) 50%, rgba(86,129,202,1) 79%, rgba(37,146,181,1) 100%);
+    transform: scale(1.05); /* Agrandar el botón un 5% */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
 
 .Busqueda_ID,
 .Busqueda_Name {
@@ -58,6 +64,8 @@ body{
     height: 12vh;  /* Establece la altura al 100% de la pantalla */
     text-align: center;
 }
+
+
 .Filtros button {
     margin: 15px;
     font-size: 16px;
@@ -78,4 +86,30 @@ body{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 25px;
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    width: fit-content;
+    margin: 0 auto;
+    height: auto; /* La altura se ajusta automáticamente al contenido */
+}
 
+.pokemon-grid div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    align-items: center; /* Asegura que el contenido esté centrado verticalmente */
+    height: 150px; /* Ajuste de la altura de los elementos dentro de la cuadrícula */
+}
+
+.pokemon-grid h2 {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}

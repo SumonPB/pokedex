@@ -216,8 +216,11 @@ public class PokemonDAO {
             }
         }
         pokemonDAO.setRegions(regionNames);
-        pokemonDAO.setHabitat(pokemon2Carg.getHabitat().getName());
-
+        if (pokemon2.get().getHabitat() == null) {
+            pokemonDAO.setHabitat("Ninguno");
+        }else {
+            pokemonDAO.setHabitat(pokemon2Carg.getHabitat().getName());
+        }
 
         return pokemonDAO;
     }
