@@ -87,29 +87,30 @@ body{
 }
 
 .pokemon-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-    gap: 25px;
-    padding: 30px;
-    border: 2px solid #ccc;
-    border-radius: 15px;
-    background-color: #f9f9f9;
-    width: fit-content;
-    margin: 0 auto;
-    height: auto; /* La altura se ajusta automáticamente al contenido */
-}
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+        gap: 40px; /* Aumento del espacio entre los elementos */
+        padding: 20px; /* Aumento del padding */
+        border: 2px solid #ccc; /* Hacer el borde más grueso */
+        border-radius: 15px; /* Aumento del radio del borde */
+        background-color: #f9f9f9;
+        width: fit-content;
+        height: 100%;
+        margin-left: 5%;
+    }
 
 .pokemon-grid div {
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
-    align-items: center; /* Asegura que el contenido esté centrado verticalmente */
-    height: 150px; /* Ajuste de la altura de los elementos dentro de la cuadrícula */
+    font-size: 18px; /* Aumento del tamaño de la fuente */
+    font-family: cursive;
 }
 
 .pokemon-grid h2 {
-    grid-column: span 2;
+    grid-column: span 2; /* El título abarca ambas columnas */
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 2rem;
+    margin-bottom: 20px; /* Aumento del margen */
+    font-size: 2rem; /* Aumento del tamaño del título */
+    font-weight: bold;
+    font-family: cursive;
 }
