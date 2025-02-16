@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1524db48-afef-4d36-830a-4342caf7a5ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DAO/PokemonDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DTO/PokemonDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Controller/PokemonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Grafica/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Grafica/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/PokedexApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/PokedexApiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/PokemonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/Service/PokemonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/jpa/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/jpa/Pokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/PokemonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/repositories/PokemonRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Grafica/MainWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/PokedexApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/PokedexApiApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Service/PokemonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/Service/PokemonService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/jpa/Pokemon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/jpa/Pokemon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/repositories/PokemonRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ec/edu/uce/pokedex/repositories/PokemonRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DAO/PokemonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DAO/PokemonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DTO/PokemonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ec/edu/uce/pokedex/DTO/PokemonDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +132,7 @@
       <workItem from="1739051912161" duration="5000" />
       <workItem from="1739547252372" duration="9025000" />
       <workItem from="1739633045454" duration="814000" />
-      <workItem from="1739635030744" duration="16443000" />
+      <workItem from="1739635030744" duration="16885000" />
     </task>
     <servers />
   </component>

@@ -137,7 +137,6 @@ public class PokemonDTO {
         this.id = id;
     }
 
-
     @Override
     public String toString() {
         return "PokemonDTO{" +

@@ -200,23 +200,18 @@ public class PokemonDAO {
         pokemonDAO.setTypes(tiposName);
 
         //Segunda parte de carga
-
-
         Optional<Pokemon> pokemon2 = pokemonService.findByIdAndLoadHabitatAndRegions(pokemon.getId());
         if (pokemon2.isEmpty()) {
             return null; // O podrías lanzar una excepción si prefieres manejarlo de otra forma
         }
-
         Pokemon pokemon2Carg = pokemon2.get();
         List<String> regionNames = new ArrayList<>();
         for (Region region : pokemon2.get().getRegions()) {
             regionNames.add(region.getName());
         }
         pokemonDAO.setRegions(regionNames);
-
         pokemonDAO.setHabitat(pokemon2Carg.getHabitat().getName());
-        //pokemonDAO.setMoves(pokemon.getMoves());
-        //pokemonDAO.setAbilities(pokemon.getAbilities());
+
 
         return pokemonDAO;
     }
@@ -261,12 +256,6 @@ public class PokemonDAO {
         //habitad
         pokemonDTO.setHabitat(pokemonDAO.getHabitat());
         //habitad
-        //moves
-        //pokemonDTO.setMoves(pokemonDAO.getMoves());
-        //moves
-        //abilities
-       // pokemonDTO.setAbilities(pokemonDAO.getAbilities());
-        //abilities
 
         return pokemonDTO;
     }
