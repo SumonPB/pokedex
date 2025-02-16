@@ -8,25 +8,27 @@
     <title>Pokedex</title>
 </head>
 <body>
-<h1 class="title">Pokedex - Detalles del Pokemon</h1>
+<div class="title">
+    <h1 >Pokedex - Detalles del Pokemon</h1>
+</div>
 
-<div>
+
+<div class="Busqueda">
     <!-- Buscar por ID -->
-    <form th:action="@{/pokedex/pokemon}" method="get">
+    <form th:action="@{/pokedex/pokemon}" method="get" class="Busqueda_ID">
         <input type="number" name="id" min="1" th:value="${pokemon.id}" placeholder="Ingrese ID de Pokémon" required>
         <button type="submit">Buscar por ID</button>
     </form>
-
     <!-- Buscar por Nombre -->
-    <form th:action="@{/pokedex/pokemon}" method="get">
+    <form th:action="@{/pokedex/pokemon}" method="get" class="Busqueda_Name">
         <input type="text" name="name" placeholder="Ingrese Nombre de Pokémon" required>
         <button type="submit">Buscar por Nombre</button>
     </form>
 </div>
 
-<div>
+<div class="Filtros">
     <a th:href="@{/pokedex/pokemon/filter(type='water', region='kanto', habitat='cave')}">
-        <button>Busqueda</button>
+        <button>Filtros</button>
     </a>
 </div>
 
@@ -46,16 +48,10 @@
     <p><strong>Evasion:</strong> <span th:text="${pokemon.stats_evasion}"></span></p>
     <p><strong>Habitat:</strong> <span th:text="${pokemon.habitat}"></span></p>
     <div>
-        <h3>Tipos:</h3>
-        <ul>
-            <li th:each="type : ${pokemon.types}" th:text="${type}"></li>
-        </ul>
+        <p><strong>Tipo:</strong> <span th:text="${pokemon.types}"></span></p>
     </div>
     <div>
-        <h3>Regiones:</h3>
-        <ul>
-            <li th:each="region : ${pokemon.regions}" th:text="${region}"></li>
-        </ul>
+        <p><strong>Región:</strong> <span th:text="${pokemon.regions}"></span></p>
     </div>
 
     <div>
@@ -68,11 +64,22 @@
     </div>
 
     <div>
-        <h3>Imágenes del Pokémon:</h3>
-        <div th:each="envolo : ${pokemon.envoles}">
-            <img th:src="@{'/pokemon_sprites/' + ${envolo} + '.png'}" alt="Pokemon Image" />
+        <h2>Pokémon Seleccionado</h2>
+        <p>ID: <span th:text="${pokemon.id}"></span></p>
+        <p>Nombre: <span th:text="${pokemon.name}"></span></p>
+
+        <h3>Evoluciones:</h3>
+        <div th:if="${pokemon.pokemons != null and not #lists.isEmpty(pokemon.pokemons)}">
+            <ul>
+                <li th:each="evo : ${pokemon.pokemons}">
+                    <p>ID: <span th:text="${evo.id}"></span></p>
+                    <p>Nombre: <span th:text="${evo.name}"></span></p>
+                    <img th:src="@{'/pokemon_sprites/' + ${evo.id} + '.png'}" alt="Imagen de evolución" />
+                </li>
+            </ul>
         </div>
     </div>
+
 
 </div>
 

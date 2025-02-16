@@ -1,6 +1,7 @@
 package ec.edu.uce.pokedex.Controller;
 
 import ec.edu.uce.pokedex.DTO.PokemonDTO;
+import ec.edu.uce.pokedex.Service.CargarDatos;
 import ec.edu.uce.pokedex.jpa.Pokemon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,12 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Controller
 @RequestMapping("/pokedex")
 public class PokemonController {
+
+
     @Autowired
     PokemonDTO pokemonDTO;
+    @Autowired
+    CargarDatos cargarDatos;
 
     @GetMapping("/pokemon/filter")
     public String filterPokemons(
@@ -30,6 +36,13 @@ public class PokemonController {
 
         return "pokemonList";
     }
+
+    @GetMapping("/cargarDatos")
+    public String cargarDatos() {
+            cargarDatos.cargar(); // Solo carga si no hay datos
+        return "";
+    }
+
 
     @GetMapping("/pokemon")
     public String getPokemon(
