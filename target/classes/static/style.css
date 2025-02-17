@@ -4,17 +4,26 @@
     --border-stylee : 4px solid white;
 }
 body{
-
+    background: rgb(43,28,35);
+    background: radial-gradient(circle, rgba(43,28,35,1) 0%, rgba(136,142,149,1) 100%);
 }
 
 .title {
     font-family: cursive;
+    font-size: 7rem;
+    text-align: center;
+    font-weight: bold;
     display: flex;
     justify-content: center;
-    align-items:center ; /* Para centrar también verticalmente */
-    height: 10vh; /* Opcional: Si quieres centrarlo en toda la pantalla */
-
+    align-items: center; /* Para centrar también verticalmente */
+    margin-bottom: 0%;
+    margin-top: 0%;
+    color: #FFCC00; /* Color amarillo, similar al de Pikachu y otros Pokémon */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Añade sombra para que resalte más */
+    -webkit-text-stroke: 3px black; /* Borde negro alrededor del texto */
 }
+
+
 
 .Busqueda {
     display: flex;
@@ -86,31 +95,116 @@ body{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
-.pokemon-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-        gap: 40px; /* Aumento del espacio entre los elementos */
-        padding: 20px; /* Aumento del padding */
-        border: 2px solid #ccc; /* Hacer el borde más grueso */
-        border-radius: 15px; /* Aumento del radio del borde */
-        background-color: #f9f9f9;
-        width: fit-content;
-        height: 100%;
-        margin-left: 5%;
-    }
+.pokemon-container {
+    display: flex; /* Usamos flexbox para colocar la imagen a la derecha */
+    justify-content: space-between; /* Separa el contenido a la izquierda y la imagen a la derecha */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    margin: 0 5%; /* Márgenes a los lados */
+}
 
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 40px; /* Aumento del espacio entre los elementos */
+    padding: 20px; /* Aumento del padding */
+    border: 2px solid #ccc; /* Hacer el borde más grueso */
+    border-radius: 15px; /* Aumento del radio del borde */
+    background: rgb(43,28,35);
+    background: linear-gradient(90deg, rgba(43,28,35,1) 6%, rgba(85,79,86,1) 32%, rgba(102,100,107,1) 67%, rgba(136,142,149,1) 95%);
+    width: fit-content;
+    height: 100%;
+    margin-left: 5%;
+}
+
+
+/*inicio*/
+.pokemon-image {
+    background: rgb(231,233,233);
+    background: radial-gradient(circle, rgba(231,233,233,1) 0%, rgba(224,169,180,1) 40%, rgba(184,20,65,1) 70%, rgba(151,75,213,1) 79%, rgba(70,181,252,1) 100%);
+    border-radius: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8%;
+    margin-right: 20%; /* Añade margen entre el grid y la imagen */
+    animation: rotateImage 4s infinite alternate; /* Aplica la animación */
+}
+
+.pokemon-image img {
+    max-width: 400px; /* Ajusta el tamaño máximo de la imagen */
+    border: 2px solid black; /* Hacer el borde más grueso */
+    border-color: black;
+    border-radius: 100%;
+    border-image-slice: 100%;
+}
+
+@keyframes rotateImage {
+    0% {
+        transform: rotateY(0deg); /* Empieza mirando al frente */
+    }
+    50% {
+        transform: rotateY(90deg); /* Gira hacia la derecha */
+    }
+    100% {
+        transform: rotateY(180deg); /* Gira hacia la izquierda */
+    }
+}
+
+/* fin*/
 .pokemon-grid div {
     display: flex;
-    justify-content: space-between;
+    justify-content: normal;
     font-size: 18px; /* Aumento del tamaño de la fuente */
     font-family: cursive;
+    color: white;
 }
 
 .pokemon-grid h2 {
     grid-column: span 2; /* El título abarca ambas columnas */
     text-align: center;
     margin-bottom: 20px; /* Aumento del margen */
-    font-size: 2rem; /* Aumento del tamaño del título */
+    font-size: 4rem; /* Aumento del tamaño del título */
     font-weight: bold;
     font-family: cursive;
+    color: #FFCC00; /* Color amarillo, similar al de Pikachu y otros Pokémon */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Añade sombra para que resalte más */
+    -webkit-text-stroke: 3px black; /* Borde negro alrededor del texto */
 }
+
+/*evoluciones*/
+.pokemon-evolutions{
+    margin-top: 0%;
+    margin-left: 5%;
+}
+.pokemon-evolutions ul {
+    display: flex;
+    gap: 40px; /* Espacio entre las evoluciones */
+    padding: 0;
+    list-style-type: none;
+}
+
+.pokemon-evolutions li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: cursive;
+}
+.EvoName{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: cursive;
+}
+
+.pokemon-evolutions img {
+    max-width: 300px; /* Ajusta el tamaño de las imágenes de las evoluciones */
+}
+
+

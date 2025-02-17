@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1 class="title">Pokedex - Detalles del Pokemon</h1>
+<h1 class="title">Pokedex</h1>
 
 <div class="Busqueda">
     <!-- Buscar por ID -->
@@ -29,53 +29,55 @@
         <button>Filtros</button>
     </a>
 </div>
-<div class="pokemon-grid">
-    <h2>Pokemon</h2>
-    <div><strong>Id:</strong> <span th:text="${pokemon.id}"></span></div>
-    <div><strong>Name:</strong> <span th:text="${pokemon.name}"></span></div>
-    <div><strong>Height:</strong> <span th:text="${pokemon.height} + ' m'"></span></div>
-    <div><strong>Weight:</strong> <span th:text="${pokemon.weight} + ' kg'"></span></div>
-    <div><strong>HP:</strong> <span th:text="${pokemon.stats_hp}"></span></div>
-    <div><strong>Attack:</strong> <span th:text="${pokemon.stats_attack}"></span></div>
-    <div><strong>Defense:</strong> <span th:text="${pokemon.stats_defense}"></span></div>
-    <div><strong>Special Attack:</strong> <span th:text="${pokemon.stats_special_attack}"></span></div>
-    <div><strong>Special Defense:</strong> <span th:text="${pokemon.stats_special_defense}"></span></div>
-    <div><strong>Speed:</strong> <span th:text="${pokemon.stats_speed}"></span></div>
-    <div><strong>Accuracy:</strong> <span th:text="${pokemon.stats_accuracy}"></span></div>
-    <div><strong>Evasion:</strong> <span th:text="${pokemon.stats_evasion}"></span></div>
-    <div><strong>Habitat:</strong> <span th:text="${pokemon.habitat}"></span></div>
-    <div><strong>Tipo:</strong> <span th:text="${pokemon.types}"></span></div>
-    <div><strong>Región:</strong> <span th:text="${pokemon.regions}"></span></div>
+<div class="pokemon-container">
+    <div class="pokemon-grid">
+        <h2>Pokemon</h2>
+        <div><strong>Id:</strong> <span th:text="${pokemon.id}"></span></div>
+        <div><strong>Name:</strong> <span th:text="${pokemon.name}"></span></div>
+        <div><strong>Height:</strong> <span th:text="${pokemon.height} + ' m'"></span></div>
+        <div><strong>Weight:</strong> <span th:text="${pokemon.weight} + ' kg'"></span></div>
+        <div><strong>HP:</strong> <span th:text="${pokemon.stats_hp}"></span></div>
+        <div><strong>Attack:</strong> <span th:text="${pokemon.stats_attack}"></span></div>
+        <div><strong>Defense:</strong> <span th:text="${pokemon.stats_defense}"></span></div>
+        <div><strong>Special Attack:</strong> <span th:text="${pokemon.stats_special_attack}"></span></div>
+        <div><strong>Special Defense:</strong> <span th:text="${pokemon.stats_special_defense}"></span></div>
+        <div><strong>Speed:</strong> <span th:text="${pokemon.stats_speed}"></span></div>
+        <div><strong>Accuracy:</strong> <span th:text="${pokemon.stats_accuracy}"></span></div>
+        <div><strong>Evasion:</strong> <span th:text="${pokemon.stats_evasion}"></span></div>
+        <div><strong>Habitat:</strong> <span th:text="${pokemon.habitat}"></span></div>
+        <div><strong>Tipo:</strong> <span th:text="${pokemon.types}"></span></div>
+        <div><strong>Región:</strong> <span th:text="${pokemon.regions}"></span></div>
+    </div>
+
+    <div class="pokemon-image">
+        <img th:src="@{'/pokemon_sprites/' + ${pokemon.id} + '.png'}" alt="Pokemon Image" />
+    </div>
 </div>
 
-        <a th:href="@{/pokedex/pokemon(id=${prevId})}">
-            <button>Anterior</button>
-        </a>
-        <a th:href="@{/pokedex/pokemon(id=${nextId})}">
-            <button>Siguiente</button>
-        </a>
+
+<div class="pokemon-evolutions">
+    <h3 class="EvoName">Evoluciones:</h3>
+    <div th:if="${pokemon.pokemons != null and not #lists.isEmpty(pokemon.pokemons)}">
+        <ul>
+            <li th:each="evo : ${pokemon.pokemons}">
+                <p>ID: <span th:text="${evo.id}"></span></p>
+                <p>Nombre: <span th:text="${evo.name}"></span></p>
+                <img th:src="@{'/pokemon_sprites/' + ${evo.id} + '.png'}" alt="Imagen de evolución" />
+            </li>
+        </ul>
     </div>
+</div>
+
+
+
 <div>
-    <h3>Imagen del Pokémon:</h3>
-    <img th:src="@{'/pokemon_sprites/' + ${pokemon.id} + '.png'}" alt="Pokemon Image" />
+    <a th:href="@{/pokedex/pokemon(id=${prevId})}">
+        <button>Anterior</button>
+    </a>
+    <a th:href="@{/pokedex/pokemon(id=${nextId})}">
+        <button>Siguiente</button>
+    </a>
 </div>
-
-    <div>
-        <h3>Evoluciones:</h3>
-        <div th:if="${pokemon.pokemons != null and not #lists.isEmpty(pokemon.pokemons)}">
-            <ul>
-                <li th:each="evo : ${pokemon.pokemons}">
-                    <p>ID: <span th:text="${evo.id}"></span></p>
-                    <p>Nombre: <span th:text="${evo.name}"></span></p>
-                    <img th:src="@{'/pokemon_sprites/' + ${evo.id} + '.png'}" alt="Imagen de evolución" />
-                </li>
-            </ul>
-        </div>
-    </div>
-
-
-</div>
-
 
 </body>
 </html>
