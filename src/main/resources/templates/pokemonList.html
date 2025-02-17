@@ -3,68 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link th:href="@{/style.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/style2.css}" rel="stylesheet" type="text/css">
   <title>Lista de Pokémon</title>
 </head>
 <body>
-
-<h1>Pokedex - Lista de Pokémon</h1>
-
+<div class="Titulo2">
+  <h1>Pokedex</h1>
+</div>
 <!-- Formulario para filtros -->
 <form action="/pokedex/pokemon/filter" method="get">
   <label for="type">Tipo:</label>
   <select name="type" id="type">
     <option value="">Seleccione un tipo</option>
-    <option value="fire">Fuego</option>
-    <option value="water">Agua</option>
-    <option value="grass">Planta</option>
-    <!-- Añadir más tipos según sea necesario -->
+    <option value="ice">Ice</option>
+    <option value="grass">Grass</option>
+    <option value="water">Water</option>
+    <option value="rock">Rock</option>
+    <option value="unknown">Unknown</option>
+    <option value="ghost">Ghost</option>
+    <option value="fighting">Fighting</option>
+    <option value="fairy">Fairy</option>
+    <option value="normal">Normal</option>
+    <option value="flying">Flying</option>
+    <option value="psychic">Psychic</option>
+    <option value="electric">Electric</option>
+    <option value="bug">Bug</option>
+    <option value="fire">Fire</option>
+    <option value="steel">Steel</option>
+    <option value="dragon">Dragon</option>
+    <option value="stellar">Stellar</option>
+    <option value="poison">Poison</option>
+    <option value="dark">Dark</option>
+    <option value="ground">Ground</option>
+
   </select>
 
   <label for="region">Región:</label>
   <select name="region" id="region">
     <option value="">Seleccione una región</option>
-    <option value="kanto">Kanto</option>
-    <option value="johto">Johto</option>
+    <option value="hisui">Hisui</option>
+    <option value="galar">Galar</option>
+    <option value="unova">Unova</option>
     <option value="sinnoh">Sinnoh</option>
-    <!-- Añadir más regiones según sea necesario -->
+    <option value="paldea">Paldea</option>
+    <option value="johto">Johto</option>
+    <option value="kalos">Kalos</option>
+    <option value="hoenn">Hoenn</option>
+    <option value="alola">Alola</option>
+    <option value="kanto">Kanto</option>
+
   </select>
 
   <label for="habitat">Hábitat:</label>
   <select name="habitat" id="habitat">
     <option value="">Seleccione un hábitat</option>
-    <option value="forest">Bosque</option>
-    <option value="cave">Cueva</option>
-    <option value="mountain">Montaña</option>
-    <!-- Añadir más hábitats según sea necesario -->
+    <option value="rough-terrain">Rough Terrain</option>
+    <option value="waters-edge">Waters Edge</option>
+    <option value="forest">Forest</option>
+    <option value="mountain">Mountain</option>
+    <option value="grassland">Grassland</option>
+    <option value="rare">Rare</option>
+    <option value="sea">Sea</option>
+    <option value="urban">Urban</option>
+    <option value="cave">Cave</option>
+
   </select>
 
   <button type="submit">Buscar</button>
 </form>
-
 <!-- Mostrar la lista de Pokémon -->
 <div>
-  <h2>Pokémon encontrados:</h2>
+  <div class="Titulo1">
+    <h2>Pokémones encontrados:</h2>
+  </div>
 
-  <div th:if="${#lists.isEmpty(pokemons)}">
+  <div th:if="${#lists.isEmpty(pokemons)} " class="Titulo1">
     <p>No se han encontrado Pokémon con los filtros seleccionados.</p>
   </div>
 
   <div th:if="${not #lists.isEmpty(pokemons)}">
-    <ul>
-      <li th:each="pokemon : ${pokemons}">
-        <div>
-          <h3 th:text="${pokemon.name}"></h3>
-          <p><strong>ID:</strong> <span th:text="${pokemon.id}"></span></p>
-          <p><strong>Tipo:</strong> <span th:text="${pokemon.types}"></span></p>
-          <p><strong>Región:</strong> <span th:text="${pokemon.regions}"></span></p>
-          <p><strong>Hábitat:</strong> <span th:text="${pokemon.habitat}"></span></p>
-
-        </div>
-      </li>
-    </ul>
+    <table class="pokemon-table">
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Región</th>
+        <th>Hábitat</th>
+        <th>Imagen</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="pokemon : ${pokemons}">
+        <!-- Envolver el nombre del Pokémon en un enlace que redirige al formulario con el ID -->
+        <td>
+          <a th:href="@{/pokedex/pokemon(id=${pokemon.id})}" th:text="${pokemon.name}"></a>
+        </td>
+        <td th:text="${pokemon.id}"></td>
+        <td th:text="${pokemon.types}"></td>
+        <td th:text="${pokemon.regions}"></td>
+        <td th:text="${pokemon.habitat}"></td>
+        <td>
+          <img th:src="@{'/pokemon_sprites/' + ${pokemon.id} + '.png'}" alt="Pokemon Image" class="pokemon-img"/>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
+
 
 </body>
 </html>

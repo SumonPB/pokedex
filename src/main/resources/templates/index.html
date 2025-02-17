@@ -70,14 +70,28 @@
 
 
 
-<div>
-    <a th:href="@{/pokedex/pokemon(id=${prevId})}">
-        <button>Anterior</button>
-    </a>
-    <a th:href="@{/pokedex/pokemon(id=${nextId})}">
-        <button>Siguiente</button>
-    </a>
+<div class="Camino">
+    <button id="prevButton" th:data-href="@{/pokedex/pokemon(id=${prevId})}">Anterior</button>
+    <button id="sigButton" th:data-href="@{/pokedex/pokemon(id=${nextId})}">Siguiente</button>
 </div>
+
+<script>
+    function fadeAndRedirect(buttonId) {
+        document.getElementById(buttonId).addEventListener("click", function () {
+            document.body.classList.add("fade-out");
+            const targetUrl = this.getAttribute("data-href"); // Obtiene la URL generada por Thymeleaf
+
+            setTimeout(() => {
+                window.location.href = targetUrl; // Redirige después de la animación
+            }, 500);
+        });
+    }
+
+    fadeAndRedirect("prevButton");
+    fadeAndRedirect("sigButton");
+</script>
+
+
 
 </body>
 </html>
