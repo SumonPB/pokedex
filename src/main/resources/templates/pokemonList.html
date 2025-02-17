@@ -10,7 +10,7 @@
 <div class="Titulo2">
   <h1>Pokedex</h1>
 </div>
-<!-- Formulario para filtros -->
+
 <form action="/pokedex/pokemon/filter" method="get">
   <label for="type">Tipo:</label>
   <select name="type" id="type">
@@ -95,7 +95,7 @@
       </thead>
       <tbody>
       <tr th:each="pokemon : ${pokemons}">
-        <!-- Envolver el nombre del Pokémon en un enlace que redirige al formulario con el ID -->
+
         <td>
           <a th:href="@{/pokedex/pokemon(id=${pokemon.id})}" th:text="${pokemon.name}"></a>
         </td>

@@ -1,8 +1,8 @@
 body {
-    background-image: url('pokemon_sprites/fondo.jpg'); /* Ruta de la imagen */
-    background-size: cover; /* Ajusta la imagen para que cubra toda la pantalla */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-image: url('pokemon_sprites/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
 }
 
@@ -51,13 +51,13 @@ color: #250845;
 
 /* Estilo de la imagen del Pokémon */
 .pokemon-img {
-    width: 60px;  /* Ajusta según el tamaño deseado */
+    width: 60px;
     height: auto;
     border-radius: 10px;
-    border: 2px solid #ff7043; /* Borde de color Pokémon */
+    border: 2px solid #ff7043;
 }
 
-/* Estilo de los botones dentro de la tabla (si se agregan) */
+/* Estilo de los botones dentro de la tabla*/
 .pokemon-table button {
     background-color: #ff7043;
     color: white;
@@ -157,9 +157,9 @@ form .description {
     font-weight: bold;
     font-family: cursive;
     margin-left: 13%;
-    color: #FFCC00; /* Color amarillo, similar al de Pikachu y otros Pokémon */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Añade sombra para que resalte más */
-    -webkit-text-stroke: 3px black; /* Borde negro alrededor del texto */
+    color: #FFCC00;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 3px black;
 }
 .Titulo2{
     text-align: center;
@@ -167,8 +167,8 @@ form .description {
     font-weight: bold;
     font-family: cursive;
     margin-left: 3%;
-    color: #FFCC00; /* Color amarillo, similar al de Pikachu y otros Pokémon */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Añade sombra para que resalte más */
-    -webkit-text-stroke: 3px black; /* Borde negro alrededor del texto */
+    color: #FFCC00;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 3px black;
 }
 /*titulos*/

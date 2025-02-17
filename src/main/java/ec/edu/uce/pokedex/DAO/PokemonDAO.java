@@ -155,10 +155,10 @@ public class PokemonDAO {
 
     public PokemonDAO toDAO(Optional<Pokemon> optionalPokemon) {
         if (optionalPokemon.isEmpty()) {
-            return null; // O podrías lanzar una excepción si prefieres manejarlo de otra forma
+            return null;
         }
 
-        Pokemon pokemon = optionalPokemon.get(); // Extraer el objeto Pokemon del Optional
+        Pokemon pokemon = optionalPokemon.get();
         PokemonDAO pokemonDAO = new PokemonDAO();
 
         pokemonDAO.setId(pokemon.getId());
@@ -204,7 +204,7 @@ public class PokemonDAO {
         //Segunda parte de carga
         Optional<Pokemon> pokemon2 = pokemonService.findByIdAndLoadHabitatAndRegions(pokemon.getId());
         if (pokemon2.isEmpty()) {
-            return null; // O podrías lanzar una excepción si prefieres manejarlo de otra forma
+            return null;
         }
         Pokemon pokemon2Carg = pokemon2.get();
         List<String> regionNames = new ArrayList<>();

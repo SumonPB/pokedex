@@ -37,7 +37,7 @@ public class PokemonController {
 
     @GetMapping("/cargarDatos")
     public String cargarDatos() {
-            cargarDatos.cargar(); // Solo carga si no hay datos
+            cargarDatos.cargar();
         return "";
     }
 
@@ -56,7 +56,7 @@ public class PokemonController {
             model.addAttribute("pokemon", pokemonDTO.buscarByName(name));
         } else {
             if (id == null) {
-                id = minId; // Si no hay ID, empezar con el primer Pokémon
+                id = minId;
             }
 
             model.addAttribute("pokemon", pokemonDTO.pokemon(id));
