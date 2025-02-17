@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1524db48-afef-4d36-830a-4342caf7a5ab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pokemonList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pokemonList.html" afterDir="false" />
-    </list>
+    <list default="true" id="1524db48-afef-4d36-830a-4342caf7a5ab" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,7 +142,7 @@
       <workItem from="1739715165098" duration="3967000" />
       <workItem from="1739726398660" duration="17734000" />
       <workItem from="1739752438431" duration="4729000" />
-      <workItem from="1739760562272" duration="5971000" />
+      <workItem from="1739760562272" duration="6252000" />
     </task>
     <servers />
   </component>
