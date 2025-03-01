@@ -15,8 +15,7 @@ public class PokemonDAO {
     @Autowired
     private PokemonService pokemonService;
 
-
-
+    private String a;
     private int id;
     private String name;
     private int height;
