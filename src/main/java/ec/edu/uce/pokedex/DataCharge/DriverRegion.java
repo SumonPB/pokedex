@@ -2,9 +2,7 @@ package ec.edu.uce.pokedex.DataCharge;
 
 import ec.edu.uce.pokedex.Observer.CargaDatosListener;
 import ec.edu.uce.pokedex.Service.RegionService;
-import ec.edu.uce.pokedex.jpa.Move;
 import ec.edu.uce.pokedex.jpa.Region;
-import ec.edu.uce.pokedex.repositories.RegionRepository;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;

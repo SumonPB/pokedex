@@ -5,6 +5,9 @@ import ec.edu.uce.pokedex.Observer.CargaDatosListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -12,6 +15,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CargarDatos implements CargaDatosListener {
 
     private AtomicInteger driversCompletados;
+    private LocalDateTime inicioCarga;
+    private LocalDateTime finCarga;
 
     @Autowired
     private DriveAbility driveAbilityService;
@@ -22,8 +27,6 @@ public class CargarDatos implements CargaDatosListener {
     @Autowired
     private DriverHabitad driverHabitadService;
     @Autowired
-    private DriverMove driverMoveService;
-    @Autowired
     private DriverPokemon driverPokemonService;
 
     public CargarDatos() {
@@ -31,18 +34,32 @@ public class CargarDatos implements CargaDatosListener {
     }
 
     public void cargar() {
-        // Ejecutar los primeros cinco procesos de forma asíncrona
+        // Capturar el tiempo de inicio de la carga
+        inicioCarga = LocalDateTime.now();
+        System.out.println("Inicio de la carga: " + formatearFechaHora(inicioCarga));
+
+        // Configurar los listeners para cada driver
+        driveAbilityService.setCargaDatosListener(this);
+        driverTypesService.setCargaDatosListener(this);
+        driverRegionService.setCargaDatosListener(this);
+        driverHabitadService.setCargaDatosListener(this);
+        driverPokemonService.setCargaDatosListener(this);
+
+        // Ejecutar los primeros cuatro procesos de forma asíncrona
         CompletableFuture<Void> future1 = CompletableFuture.runAsync(driveAbilityService::ejecutar);
         CompletableFuture<Void> future2 = CompletableFuture.runAsync(driverTypesService::ejecutar);
         CompletableFuture<Void> future3 = CompletableFuture.runAsync(driverRegionService::ejecutar);
         CompletableFuture<Void> future4 = CompletableFuture.runAsync(driverHabitadService::ejecutar);
-        CompletableFuture<Void> future5 = CompletableFuture.runAsync(driverMoveService::ejecutar);
 
         // Cuando todos los anteriores terminen, se ejecuta la carga de Pokémon
-        CompletableFuture.allOf(future1, future2, future3, future4, future5)
+        CompletableFuture.allOf(future1, future2, future3, future4)
                 .thenRun(() -> {
-                    System.out.println("Las primeras 5 cargas han finalizado. Iniciando carga de Pokémon...");
+                    System.out.println("Las primeras 4 cargas han finalizado. Iniciando carga de Pokémon...");
                     driverPokemonService.ejecutar();
+                })
+                .exceptionally(ex -> {
+                    System.err.println("Error durante la carga de datos: " + ex.getMessage());
+                    return null;
                 });
     }
 
@@ -51,8 +68,30 @@ public class CargarDatos implements CargaDatosListener {
         int completados = driversCompletados.incrementAndGet();
         System.out.println("Carga de un driver completada. Total completados: " + completados);
 
-        if (completados == 6) {
+        if (completados == 5) {
+            // Capturar el tiempo de fin de la carga
+            finCarga = LocalDateTime.now();
+            System.out.println("Fin de la carga: " + formatearFechaHora(finCarga));
+
+            // Calcular la duración total de la carga
+            Duration duracion = Duration.between(inicioCarga, finCarga);
+            System.out.println("Duración total de la carga: " + formatearDuracion(duracion));
+
             System.out.println("¡Todos los drivers han terminado la carga!");
         }
+    }
+
+    // Método para formatear la fecha y hora
+    private String formatearFechaHora(LocalDateTime fechaHora) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return fechaHora.format(formatter);
+    }
+
+    // Método para formatear la duración
+    private String formatearDuracion(Duration duracion) {
+        long horas = duracion.toHours();
+        long minutos = duracion.toMinutesPart();
+        long segundos = duracion.toSecondsPart();
+        return String.format("%02d:%02d:%02d", horas, minutos, segundos);
     }
 }

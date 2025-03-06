@@ -72,13 +72,21 @@ public class Pokemon {
     )
     private List<Region> regions; // Relación Many-to-Many con Region
 
-    @ManyToMany
+   /* @ManyToMany
     @JoinTable(
             name = "pokemon_moves",
             joinColumns = @JoinColumn(name = "pokemon_id"),
             inverseJoinColumns = @JoinColumn(name = "move_id")
     )
     private List<Move> moves; // Relación Many-to-Many con Move
+        public List<Move> getMoves() {
+        return moves;
+    }
+
+    public void setMoves(List<Move> moves) {
+        this.moves = moves;
+    }
+    */
 
     @ManyToMany
     @JoinTable(
@@ -88,6 +96,11 @@ public class Pokemon {
     )
     private List<Abilities> abilities; // Relación Many-to-Many con Abilities
 
+
+
+
+
+
     public List<Abilities> getAbilities() {
         return abilities;
     }
@@ -96,13 +109,6 @@ public class Pokemon {
         this.abilities = abilities;
     }
 
-    public List<Move> getMoves() {
-        return moves;
-    }
-
-    public void setMoves(List<Move> moves) {
-        this.moves = moves;
-    }
 
     public List<Region> getRegions() {
         return regions;
@@ -235,43 +241,5 @@ public class Pokemon {
     public Pokemon() {
     }
 
-    public Pokemon(int id, String name, int height, int weight, double stats_hp, double stats_attack, double stats_defense, double stats_special_attack, double stats_special_defense, double stats_speed, double stats_accuracy, double stats_evasion, List<Integer> envoles) {
-        this.id = id;
-        this.name = name;
-        this.height = height;
-        this.weight = weight;
-        this.stats_hp = stats_hp;
-        this.stats_attack = stats_attack;
-        this.stats_defense = stats_defense;
-        this.stats_special_attack = stats_special_attack;
-        this.stats_special_defense = stats_special_defense;
-        this.stats_speed = stats_speed;
-        this.stats_accuracy = stats_accuracy;
-        this.stats_evasion = stats_evasion;
-        this.envoles = envoles;
-    }
 
-    @Override
-    public String toString() {
-        return "Pokemon{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", height=" + height +
-                ", weight=" + weight +
-                ", stats_hp=" + stats_hp +
-                ", stats_attack=" + stats_attack +
-                ", stats_defense=" + stats_defense +
-                ", stats_special_attack=" + stats_special_attack +
-                ", stats_special_defense=" + stats_special_defense +
-                ", stats_speed=" + stats_speed +
-                ", stats_accuracy=" + stats_accuracy +
-                ", stats_evasion=" + stats_evasion +
-                ", envoles=" + envoles +
-                ", types=" + types +
-                ", habitat=" + habitat +
-                ", regions=" + regions +
-                ", moves=" + moves +
-                ", abilities=" + abilities +
-                '}';
-    }
 }

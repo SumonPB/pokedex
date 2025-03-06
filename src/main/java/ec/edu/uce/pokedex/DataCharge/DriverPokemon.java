@@ -27,8 +27,7 @@ public class DriverPokemon {
     private HabitatService habitatService;
     @Autowired
     private RegionService regionService;
-    @Autowired
-    private MoveService moveService;
+
     @Autowired
     private AbilitiesService abilitiesService;
 
@@ -190,33 +189,28 @@ public class DriverPokemon {
                     }
                     if (habitatId != null) {
                         Habitat newHabitat = habitatService.findById(habitatId);
-                            nuevoPokemon.setHabitat(newHabitat);
+                        nuevoPokemon.setHabitat(newHabitat);
                     }
 
                     List<Types> tiposList = new ArrayList<>();
                     for (Integer typeId : typeIds) {
                         Types newTypes = typesService.findById(typeId);
-                         tiposList.add(newTypes);
+                        tiposList.add(newTypes);
                     }
                     List<Region> regionesList = new ArrayList<>();
                     for (Integer regiones : regionIds) {
                         Region newRegion = regionService.findById(regiones);
-                            regionesList.add(newRegion);
+                        regionesList.add(newRegion);
                     }
-                    List<Move> movimientoList = new ArrayList<>();
-                    for (Integer movimientos : moveIds) {
-                        Move newMove = moveService.findById(movimientos);
-                            movimientoList.add(newMove);
-                    }
+
 
                     List<Abilities> abilidadesList = new ArrayList<>();
                     for (Integer abilidades : abilityIds) {
                         Abilities newAbilidades = abilitiesService.findById(abilidades);
-                            abilidadesList.add(newAbilidades);
+                        abilidadesList.add(newAbilidades);
                     }
 
                     nuevoPokemon.setAbilities(abilidadesList);
-                    nuevoPokemon.setMoves(movimientoList);
                     nuevoPokemon.setRegions(regionesList);
                     nuevoPokemon.setTypes(tiposList);
                     nuevoPokemon.setEnvoles(evolutionIds);
@@ -289,30 +283,43 @@ public class DriverPokemon {
 
     private List<Integer> obtenerEvolutionIds(JSONObject speciesData) {
         List<Integer> evolutionIds = new ArrayList<>();
+
         if (speciesData != null && speciesData.has("evolution_chain") && !speciesData.isNull("evolution_chain")) {
             String evolutionChainUrl = speciesData.getJSONObject("evolution_chain").getString("url");
+            System.out.println("URL de la cadena de evolución: " + evolutionChainUrl); // Depuración
+
             JSONObject evolutionChainData = obtenerDatosDeUrl(evolutionChainUrl);
 
             if (evolutionChainData != null && evolutionChainData.has("chain")) {
                 JSONObject chain = evolutionChainData.getJSONObject("chain");
                 extraerIdsDeEvolucion(chain, evolutionIds);
             }
+        } else {
+            System.out.println("No se encontró la cadena de evolución para este Pokémon."); // Depuración
         }
+
         return evolutionIds;
     }
 
     private void extraerIdsDeEvolucion(JSONObject chain, List<Integer> evolutionIds) {
-        if (chain.has("species")) {
+        if (chain != null && chain.has("species")) {
             JSONObject species = chain.getJSONObject("species");
-            if (species.has("url")) {
-                evolutionIds.add(extraerIdDesdeUrl(species.getString("url")));
+            if (species != null && species.has("url")) {
+                String speciesUrl = species.getString("url");
+                if (speciesUrl != null && !speciesUrl.isEmpty()) {
+                    int speciesId = extraerIdDesdeUrl(speciesUrl);
+                    evolutionIds.add(speciesId);
+                }
             }
         }
 
-        if (chain.has("evolves_to")) {
+        if (chain != null && chain.has("evolves_to")) {
             JSONArray evolvesToArray = chain.getJSONArray("evolves_to");
             for (int i = 0; i < evolvesToArray.length(); i++) {
-                extraerIdsDeEvolucion(evolvesToArray.getJSONObject(i), evolutionIds);
+                JSONObject nextEvolution = evolvesToArray.optJSONObject(i);
+                if (nextEvolution != null) {
+                    extraerIdsDeEvolucion(nextEvolution, evolutionIds);
+                }
             }
         }
     }
