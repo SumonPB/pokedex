@@ -39,8 +39,10 @@ public class DriverPokemon {
 
     public DriverPokemon(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
+
+
         // Crear un ExecutorService con un número fijo de hilos
-        this.executorService = Executors.newFixedThreadPool(10); // Puedes ajustar el tamaño del pool de hilos
+        this.executorService = Executors.newFixedThreadPool(40); // Puedes ajustar el tamaño del pool de hilos
     }
 
     public void ejecutar() {
@@ -241,9 +243,9 @@ public class DriverPokemon {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("No se pudieron obtener los datos de los Pokémon.");
         }
     }
+
 
 
     private JSONObject obtenerDatosDeUrl(String url) {
@@ -251,7 +253,6 @@ public class DriverPokemon {
             String jsonResponse = restTemplate.getForObject(url, String.class);
             return new JSONObject(jsonResponse);
         } catch (Exception e) {
-            System.err.println("Error al obtener datos desde URL: " + url + " - " + e.getMessage());
             return null;
         }
     }
@@ -261,14 +262,17 @@ public class DriverPokemon {
             String jsonResponse = restTemplate.getForObject(url, String.class);
             return new JSONArray(jsonResponse);
         } catch (Exception e) {
-            System.err.println("Error al obtener datos de encuentros desde URL: " + url + " - " + e.getMessage());
             return null;
         }
     }
 
     private int extraerIdDesdeUrl(String url) {
-        String[] partes = url.split("/");
-        return Integer.parseInt(partes[partes.length - 1]);
+        // Encuentra la posición del último '/'
+        int lastSlashIndex = url.lastIndexOf('/');
+        // Encuentra la posición del penúltimo '/'
+        int secondLastSlashIndex = url.lastIndexOf('/', lastSlashIndex - 1);
+        // Extrae el ID como substring y lo convierte a entero
+        return Integer.parseInt(url.substring(secondLastSlashIndex + 1, lastSlashIndex));
     }
 
     private Integer obtenerHabitatId(JSONObject speciesData) {
@@ -286,7 +290,6 @@ public class DriverPokemon {
 
         if (speciesData != null && speciesData.has("evolution_chain") && !speciesData.isNull("evolution_chain")) {
             String evolutionChainUrl = speciesData.getJSONObject("evolution_chain").getString("url");
-            System.out.println("URL de la cadena de evolución: " + evolutionChainUrl); // Depuración
 
             JSONObject evolutionChainData = obtenerDatosDeUrl(evolutionChainUrl);
 
@@ -295,7 +298,6 @@ public class DriverPokemon {
                 extraerIdsDeEvolucion(chain, evolutionIds);
             }
         } else {
-            System.out.println("No se encontró la cadena de evolución para este Pokémon."); // Depuración
         }
 
         return evolutionIds;

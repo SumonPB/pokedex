@@ -1,9 +1,9 @@
 
 body {
-    background-image: url('pokemon_sprites/fondo.jpg'); /* Ruta de la imagen */
-    background-size: cover; /* Ajusta la imagen para que cubra toda la pantalla */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-image: url('pokemon_sprites/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
 }
 
@@ -15,12 +15,12 @@ body {
     font-weight: bold;
     display: flex;
     justify-content: center;
-    align-items: center; /* Para centrar también verticalmente */
+    align-items: center;
     margin-bottom: 0%;
     margin-top: 0%;
-    color: #FFCC00; /* Color amarillo, similar al de Pikachu y otros Pokémon */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Añade sombra para que resalte más */
-    -webkit-text-stroke: 3px black; /* Borde negro alrededor del texto */
+    color: #FFCC00;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 3px black;
 }
 
 
@@ -29,7 +29,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15vh;  /* Establece la altura al 100% de la pantalla */
+    height: 15vh;
     text-align: center;
 }
 
@@ -53,24 +53,24 @@ body {
     font-family: cursive;
     color: white;
 }
-/* Efecto al pasar el cursor */
+
 .Busqueda button:hover {
     background: radial-gradient(circle, rgba(70,95,252,1) 0%, rgba(75,115,213,1) 34%, rgba(83,82,179,1) 50%, rgba(86,129,202,1) 79%, rgba(37,146,181,1) 100%);
-    transform: scale(1.05); /* Agrandar el botón un 5% */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .Busqueda_ID,
 .Busqueda_Name {
     display: flex;
-    flex-direction: column; /* Los elementos dentro de cada formulario estarán apilados verticalmente */
+    flex-direction: column;
 }
 
 .Filtros {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 12vh;  /* Establece la altura al 100% de la pantalla */
+    height: 12vh;
     text-align: center;
 }
 
@@ -79,27 +79,27 @@ body {
     margin: 15px;
     font-size: 16px;
     padding: 20px;
-    border-radius: 10px; /* Redondea los bordes */
+    border-radius: 10px;
     background: rgb(37,146,181);
     background: radial-gradient(circle, rgba(37,146,181,1) 0%, rgba(86,129,202,1) 34%, rgba(83,82,179,1) 50%, rgba(75,115,213,1) 79%, rgba(70,95,252,1) 100%);
     font-family: cursive;
     color: white;
-    border: none; /* Para quitar bordes */
-    transition: all 0.3s ease; /* Agregar animación suave */
+    border: none;
+    transition: all 0.3s ease;
 }
 
 /* Efecto al pasar el cursor */
 .Filtros button:hover {
     background: radial-gradient(circle, rgba(70,95,252,1) 0%, rgba(75,115,213,1) 34%, rgba(83,82,179,1) 50%, rgba(86,129,202,1) 79%, rgba(37,146,181,1) 100%);
-    transform: scale(1.05); /* Agrandar el botón un 5% */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .pokemon-container {
-    display: flex; /* Usamos flexbox para colocar la imagen a la derecha */
-    justify-content: space-between; /* Separa el contenido a la izquierda y la imagen a la derecha */
-    align-items: flex-start; /* Alinea los elementos al inicio */
-    margin: 0 5%; /* Márgenes a los lados */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 5%;
 }
 
 .pokemon-grid {
@@ -127,13 +127,13 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 8%;
-    margin-right: 15%; /* Añade margen entre el grid y la imagen */
-    animation: rotateImage 4s infinite alternate; /* Aplica la animación */
+    margin-right: 15%;
+    animation: rotateImage 4s infinite alternate;
 }
 
 .pokemon-image img {
-    max-width: 400px; /* Ajusta el tamaño máximo de la imagen */
-    border: 2px solid black; /* Hacer el borde más grueso */
+    max-width: 400px;
+    border: 2px solid black;
     border-color: black;
     border-radius: 100%;
     border-image-slice: 100%;
@@ -141,13 +141,13 @@ body {
 
 @keyframes rotateImage {
     0% {
-        transform: rotateY(0deg); /* Empieza mirando al frente */
+        transform: rotateY(0deg);
     }
     50% {
-        transform: rotateY(90deg); /* Gira hacia la derecha */
+        transform: rotateY(90deg);
     }
     100% {
-        transform: rotateY(180deg); /* Gira hacia la izquierda */
+        transform: rotateY(180deg);
     }
 }
 
@@ -155,21 +155,21 @@ body {
 .pokemon-grid div {
     display: flex;
     justify-content: normal;
-    font-size: 18px; /* Aumento del tamaño de la fuente */
+    font-size: 18px;
     font-family: cursive;
     color: white;
 }
 
 .pokemon-grid h2 {
-    grid-column: span 2; /* El título abarca ambas columnas */
+    grid-column: span 2;
     text-align: center;
-    margin-bottom: 20px; /* Aumento del margen */
-    font-size: 4rem; /* Aumento del tamaño del título */
+    margin-bottom: 20px;
+    font-size: 4rem;
     font-weight: bold;
     font-family: cursive;
-    color: #FFCC00; /* Color amarillo, similar al de Pikachu y otros Pokémon */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Añade sombra para que resalte más */
-    -webkit-text-stroke: 3px black; /* Borde negro alrededor del texto */
+    color: #FFCC00;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 3px black;
 }
 
 /*evoluciones*/
@@ -179,7 +179,7 @@ body {
 }
 .pokemon-evolutions ul {
     display: flex;
-    gap: 60px; /* Espacio entre las evoluciones */
+    gap: 60px;
     padding: 0;
     list-style-type: none;
 }
@@ -192,9 +192,9 @@ body {
     text-align: center;
     font-size: 1.6rem;
     font-family: cursive;
-    color: #FFCC00; /* Color amarillo, similar al de Pikachu y otros Pokémon */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Añade sombra para que resalte más */
-    -webkit-text-stroke: 1px black; /* Borde negro alrededor del texto */
+    color: #FFCC00;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 1px black;
 }
 .EvoName{
     display: flex;
@@ -206,20 +206,20 @@ body {
     font-family: cursive;
     font-weight: bold;
     color: white;
-    -webkit-text-stroke: 1px black; /* Borde negro alrededor del texto */
+    -webkit-text-stroke: 1px black;
 }
 
 .pokemon-evolutions img {
-    border: 2px solid black; /* Hacer el borde más grueso */
+    border: 2px solid black;
     border-color: black;
-    max-width: 300px; /* Ajusta el tamaño de las imágenes de las evoluciones */
+    max-width: 300px;
 }
 /*sig-atras*/
 .fade-out {
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    pointer-events: none; /* Para que no se pueda interactuar con el contenido después de desaparecer */
+    pointer-events: none;
 }
 
 
@@ -227,25 +227,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 12vh;  /* Establece la altura al 100% de la pantalla */
+    height: 12vh;
     text-align: center;
 }
 .Camino button {
     margin: 15px;
     font-size: 16px;
     padding: 20px;
-    border-radius: 10px; /* Redondea los bordes */
+    border-radius: 10px;
     background: rgb(37,146,181);
     background: radial-gradient(circle, rgba(37,146,181,1) 0%, rgba(86,129,202,1) 34%, rgba(83,82,179,1) 50%, rgba(75,115,213,1) 79%, rgba(70,95,252,1) 100%);
     font-family: cursive;
     color: white;
-    border: none; /* Para quitar bordes */
-    transition: all 0.3s ease; /* Agregar animación suave */
+    border: none;
+    transition: all 0.3s ease;
 }
 
-/* Efecto al pasar el cursor */
+
 .Camino button:hover {
     background: radial-gradient(circle, rgba(70,95,252,1) 0%, rgba(75,115,213,1) 34%, rgba(83,82,179,1) 50%, rgba(86,129,202,1) 79%, rgba(37,146,181,1) 100%);
-    transform: scale(1.05); /* Agrandar el botón un 5% */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
