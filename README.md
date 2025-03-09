@@ -1,6 +1,6 @@
 # Pokedex API
 
-Este proyecto es una aplicación web desarrollada con Spring Boot y consumiendo la api de PokedexApi que permite buscar e interactuar con información sobre Pokémon.
+Este proyecto es una aplicación web desarrollada con Spring Boot y consumiendo la api de PokedexApi, la aplicacion permite buscar e interactuar con información sobre Pokémon.
 
 ## Características
 - **Búsqueda de Pokémon**: Se puede buscar un Pokémon por su nombre o ID.
