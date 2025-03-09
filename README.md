@@ -77,6 +77,8 @@ Este proyecto es una aplicación web desarrollada con Spring Boot y consumiendo 
 - **Thymeleaf**
 - **Maven**
 - **CSS**
+- **Postgres**
+- **Docker**
 
 ## Nota:
 La base de datos usada fue postgres en caso de requerirlo configurar el archivo properties para adaptar otra base de datos y descargar su respectiva dependencia.
