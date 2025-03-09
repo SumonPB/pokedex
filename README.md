@@ -7,6 +7,7 @@ Este proyecto es una aplicación web desarrollada con Spring Boot y consumiendo 
 - **Filtro de Pokémon**: Se pueden filtrar los Pokémon por tipo, región, habilidad o hábitat.
 - **Visualización detallada**: Al seleccionar un Pokémon, se muestra una vista detallada con su información.
 
+
 ## Estructura del Proyecto
 
 ### Directorios y Paquetes
@@ -76,6 +77,9 @@ Este proyecto es una aplicación web desarrollada con Spring Boot y consumiendo 
 - **Thymeleaf**
 - **Maven**
 - **CSS**
+
+## Nota:
+La base de datos usada fue postgres en caso de requerirlo configurar el archivo properties para adaptar otra base de datos y descargar su respectiva dependencia.
 
 ## Contacto
 Para cualquier duda o sugerencia, puedes abrir un issue en el repositorio.
