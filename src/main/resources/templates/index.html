@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enlace a la hoja de estilos CSS -->
     <link th:href="@{/style.css}" rel="stylesheet" type="text/css">
 
     <title>Pokedex</title>
 </head>
 <body>
 
+<!-- Título de la página -->
 <h1 class="title">Pokedex</h1>
 
+<!-- Sección de búsqueda de Pokémon -->
 <div class="Busqueda">
-    <!-- Buscar por ID -->
+    <!-- Formulario para buscar Pokémon por ID -->
     <form th:action="@{/pokedex/pokemon}" method="get" class="Busqueda_ID">
         <input type="number" name="id" min="1" th:value="${pokemon.id}" placeholder="Ingrese ID de Pokémon" required>
         <button type="submit">Buscar por ID</button>
     </form>
-    <!-- Buscar por Nombre -->
+
+    <!-- Formulario para buscar Pokémon por nombre -->
     <form th:action="@{/pokedex/pokemon}" method="get" class="Busqueda_Name">
         <input type="text" name="name" placeholder="Ingrese Nombre de Pokémon" required>
         <button type="submit">Buscar por Nombre</button>
     </form>
 </div>
 
+<!-- Sección de filtros (actualmente solo un botón de ejemplo) -->
 <div class="Filtros">
     <a th:href="@{/pokedex/pokemon/filter(type='water', region='kanto', habitat='cave')}">
         <button>Filtros</button>
     </a>
 </div>
+
+<!-- Contenedor principal para mostrar la información del Pokémon -->
 <div class="pokemon-container">
+    <!-- Sección de detalles del Pokémon -->
     <div class="pokemon-grid">
         <h2>Pokemon</h2>
         <div><strong>Id:</strong> <span th:text="${pokemon.id}"></span></div>
@@ -49,14 +58,16 @@
         <div><strong>Región:</strong> <span th:text="${pokemon.regions}"></span></div>
     </div>
 
+    <!-- Sección de la imagen del Pokémon -->
     <div class="pokemon-image">
         <img th:src="@{'/pokemon_sprites/' + ${pokemon.id} + '.png'}" alt="Pokemon Image" />
     </div>
 </div>
 
-
+<!-- Sección de evoluciones del Pokémon -->
 <div class="pokemon-evolutions">
     <h3 class="EvoName">Evoluciones:</h3>
+    <!-- Verifica si hay evoluciones y las muestra -->
     <div th:if="${pokemon.pokemons != null and not #lists.isEmpty(pokemon.pokemons)}">
         <ul>
             <li th:each="evo : ${pokemon.pokemons}">
@@ -68,30 +79,39 @@
     </div>
 </div>
 
-
-
+<!-- Sección de navegación (anterior y siguiente) -->
 <div class="Camino">
+    <!-- Botón para ir al Pokémon anterior -->
     <button id="prevButton" th:data-href="@{/pokedex/pokemon(id=${prevId})}">Anterior</button>
+    <!-- Botón para ir al siguiente Pokémon -->
     <button id="sigButton" th:data-href="@{/pokedex/pokemon(id=${nextId})}">Siguiente</button>
 </div>
 
+<!-- Script para manejar la animación y redirección de los botones de navegación -->
 <script>
+    /**
+     * Función para agregar una animación de desvanecimiento y redirigir a otra página.
+     * @param {string} buttonId - ID del botón que activa la redirección.
+     */
     function fadeAndRedirect(buttonId) {
         document.getElementById(buttonId).addEventListener("click", function () {
+            // Añade la clase para la animación de desvanecimiento
             document.body.classList.add("fade-out");
-            const targetUrl = this.getAttribute("data-href"); // Obtiene la URL generada por Thymeleaf
 
+            // Obtiene la URL generada por Thymeleaf desde el atributo data-href
+            const targetUrl = this.getAttribute("data-href");
+
+            // Redirige después de 500ms (medio segundo)
             setTimeout(() => {
-                window.location.href = targetUrl; // Redirige después de la animación
+                window.location.href = targetUrl;
             }, 500);
         });
     }
 
+    // Aplica la función a los botones de "Anterior" y "Siguiente"
     fadeAndRedirect("prevButton");
     fadeAndRedirect("sigButton");
 </script>
-
-
 
 </body>
 </html>

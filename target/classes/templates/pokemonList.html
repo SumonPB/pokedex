@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Configuración básica del documento -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Enlace a la hoja de estilos CSS -->
   <link th:href="@{/style2.css}" rel="stylesheet" type="text/css">
+
   <title>Lista de Pokémon</title>
 </head>
 <body>
+
+<!-- Título de la página -->
 <div class="Titulo2">
   <h1>Pokedex</h1>
 </div>
-<!-- Formulario para filtros -->
+
+<!-- Formulario de filtros para buscar Pokémon -->
 <form action="/pokedex/pokemon/filter" method="get">
+  <!-- Filtro por tipo -->
   <label for="type">Tipo:</label>
   <select name="type" id="type">
     <option value="">Seleccione un tipo</option>
@@ -35,9 +42,9 @@
     <option value="poison">Poison</option>
     <option value="dark">Dark</option>
     <option value="ground">Ground</option>
-
   </select>
 
+  <!-- Filtro por región -->
   <label for="region">Región:</label>
   <select name="region" id="region">
     <option value="">Seleccione una región</option>
@@ -51,9 +58,9 @@
     <option value="hoenn">Hoenn</option>
     <option value="alola">Alola</option>
     <option value="kanto">Kanto</option>
-
   </select>
 
+  <!-- Filtro por hábitat -->
   <label for="habitat">Hábitat:</label>
   <select name="habitat" id="habitat">
     <option value="">Seleccione un hábitat</option>
@@ -66,21 +73,25 @@
     <option value="sea">Sea</option>
     <option value="urban">Urban</option>
     <option value="cave">Cave</option>
-
   </select>
 
+  <!-- Botón para enviar el formulario -->
   <button type="submit">Buscar</button>
 </form>
-<!-- Mostrar la lista de Pokémon -->
+
+<!-- Sección para mostrar la lista de Pokémon -->
 <div>
+  <!-- Título de la lista de Pokémon -->
   <div class="Titulo1">
     <h2>Pokémones encontrados:</h2>
   </div>
 
+  <!-- Mensaje si no se encuentran Pokémon -->
   <div th:if="${#lists.isEmpty(pokemons)} " class="Titulo1">
     <p>No se han encontrado Pokémon con los filtros seleccionados.</p>
   </div>
 
+  <!-- Tabla para mostrar los Pokémon encontrados -->
   <div th:if="${not #lists.isEmpty(pokemons)}">
     <table class="pokemon-table">
       <thead>
@@ -94,15 +105,21 @@
       </tr>
       </thead>
       <tbody>
+      <!-- Iteración sobre la lista de Pokémon -->
       <tr th:each="pokemon : ${pokemons}">
-        <!-- Envolver el nombre del Pokémon en un enlace que redirige al formulario con el ID -->
+        <!-- Nombre del Pokémon con enlace a su página de detalles -->
         <td>
           <a th:href="@{/pokedex/pokemon(id=${pokemon.id})}" th:text="${pokemon.name}"></a>
         </td>
+        <!-- ID del Pokémon -->
         <td th:text="${pokemon.id}"></td>
+        <!-- Tipo del Pokémon -->
         <td th:text="${pokemon.types}"></td>
+        <!-- Región del Pokémon -->
         <td th:text="${pokemon.regions}"></td>
+        <!-- Hábitat del Pokémon -->
         <td th:text="${pokemon.habitat}"></td>
+        <!-- Imagen del Pokémon -->
         <td>
           <img th:src="@{'/pokemon_sprites/' + ${pokemon.id} + '.png'}" alt="Pokemon Image" class="pokemon-img"/>
         </td>
@@ -111,7 +128,6 @@
     </table>
   </div>
 </div>
-
 
 </body>
 </html>

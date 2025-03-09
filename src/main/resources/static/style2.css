@@ -1,174 +1,179 @@
+/* Estilos generales del cuerpo de la página */
 body {
-    background-image: url('pokemon_sprites/fondo.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
+    background-image: url('pokemon_sprites/fondo.jpg'); /* Fondo de la página */
+    background-size: cover; /* Cubre toda la pantalla */
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
+/* Estilos para la tabla de Pokémon */
 .pokemon-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px auto;
-    font-size: 18px;
-    text-align: left;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    font-family: cursive;
-
+    width: 100%; /* Ancho completo */
+    border-collapse: collapse; /* Elimina el espacio entre celdas */
+    margin: 20px auto; /* Margen exterior */
+    font-size: 18px; /* Tamaño de fuente */
+    text-align: left; /* Alineación del texto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 10px; /* Bordes redondeados */
+    font-family: cursive; /* Fuente cursiva */
 }
 
-/* Estilo para las celdas de la tabla */
+/* Estilos para las celdas de la tabla */
 .pokemon-table th, .pokemon-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
+    border: 1px solid #ddd; /* Borde sólido */
+    padding: 12px; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
 }
 
-/* Estilo para los encabezados de la tabla */
+/* Estilos para los encabezados de la tabla */
 .pokemon-table th {
-    background-color: #ff6f00; /* Color Pokémon de fuego */
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-top-left-radius: 10px;
+    background-color: #ff6f00; /* Color de fondo */
+    color: white; /* Texto blanco */
+    font-size: 20px; /* Tamaño de fuente */
+    font-weight: bold; /* Texto en negrita */
+    border-top-left-radius: 10px; /* Bordes redondeados en la parte superior */
     border-top-right-radius: 10px;
 }
 
-/* Estilo para las filas de la tabla */
+/* Estilos para las filas pares de la tabla */
 .pokemon-table tr:nth-child(even) {
-color: #250845;
+    color: #250845; /* Color del texto */
 }
 
+/* Estilos para las filas impares de la tabla */
 .pokemon-table tr:nth-child(odd) {
-    color: #250845;
+    color: #250845; /* Color del texto */
 }
 
 /* Efecto al pasar el cursor por una fila */
 .pokemon-table tr:hover {
-    background-color: #6c6865;
+    background-color: #6c6865; /* Color de fondo al hacer hover */
 }
 
 /* Estilo de la imagen del Pokémon */
 .pokemon-img {
-    width: 60px;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid #ff7043;
+    width: 60px; /* Ancho de la imagen */
+    height: auto; /* Altura automática */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 2px solid #ff7043; /* Borde sólido */
 }
 
-/* Estilo de los botones dentro de la tabla*/
+/* Estilo de los botones dentro de la tabla */
 .pokemon-table button {
-    background-color: #ff7043;
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #ff7043; /* Color de fondo */
+    color: white; /* Texto blanco */
+    padding: 8px 15px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+    transition: background-color 0.3s ease; /* Transición suave */
 }
 
+/* Efecto al pasar el cursor sobre los botones */
 .pokemon-table button:hover {
-    background-color: #f57c00;
+    background-color: #f57c00; /* Color de fondo al hacer hover */
 }
 
-/*forms*/
-/* Estilo general del formulario */
+/* Estilos para el formulario */
 form {
-    width: 80%;
-    margin: 15px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: cursive;
-    text-align: center;
-
+    width: 80%; /* Ancho del formulario */
+    margin: 15px auto; /* Margen exterior */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    font-family: cursive; /* Fuente cursiva */
+    text-align: center; /* Centra el texto */
 }
 
+/* Estilos para las etiquetas del formulario */
 form label {
-    display: block;
-    font-size: 18px;
-    color: #4b4b4b;
-    margin-bottom: 8px;
+    display: block; /* Muestra las etiquetas en bloque */
+    font-size: 18px; /* Tamaño de fuente */
+    color: #4b4b4b; /* Color del texto */
+    margin-bottom: 8px; /* Margen inferior */
 }
 
+/* Estilos para los selectores del formulario */
 form select {
-    width: 200px;
-    padding: 8px;
-    margin: 10px 0;
-    border: 2px solid #4b4b4b;
-    border-radius: 5px;
-    background-color: #fff;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    width: 200px; /* Ancho del selector */
+    padding: 8px; /* Espaciado interno */
+    margin: 10px 0; /* Margen exterior */
+    border: 2px solid #4b4b4b; /* Borde sólido */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #fff; /* Color de fondo */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s ease; /* Transición suave */
 }
 
-/* Cambiar color de fondo cuando se hace hover */
+/* Efecto al pasar el cursor sobre los selectores */
 form select:hover {
-    background-color: #e0f7fa;
-    border-color: #26c6da;
+    background-color: #e0f7fa; /* Color de fondo al hacer hover */
+    border-color: #26c6da; /* Color del borde al hacer hover */
 }
 
-/* Estilo del botón */
+/* Estilos para el botón del formulario */
 form button {
-    background-color: #ff6f00;
-    color: white;
-    font-size: 18px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #ff6f00; /* Color de fondo */
+    color: white; /* Texto blanco */
+    font-size: 18px; /* Tamaño de fuente */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+    transition: background-color 0.3s ease; /* Transición suave */
 }
 
+/* Efecto al pasar el cursor sobre el botón */
 form button:hover {
-    background-color: #f57c00;
+    background-color: #f57c00; /* Color de fondo al hacer hover */
 }
 
-/* Estilo de los títulos y los espacios */
+/* Estilos para los títulos del formulario */
 form h2 {
-    font-size: 28px;
-    color: #ff7043;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+    font-size: 28px; /* Tamaño de fuente */
+    color: #ff7043; /* Color del texto */
+    margin-bottom: 20px; /* Margen inferior */
+    text-transform: uppercase; /* Texto en mayúsculas */
 }
 
+/* Estilos para la descripción del formulario */
 form .description {
-    font-size: 16px;
-    color: #607d8b;
-    margin-bottom: 20px;
+    font-size: 16px; /* Tamaño de fuente */
+    color: #607d8b; /* Color del texto */
+    margin-bottom: 20px; /* Margen inferior */
 }
 
-/* Estilo para el formulario en dispositivos móviles */
+/* Estilos para el formulario en dispositivos móviles */
 @media (max-width: 600px) {
     form {
-        width: 95%;
+        width: 95%; /* Ancho completo en móviles */
     }
 
     form select,
     form button {
-        width: 100%;
+        width: 100%; /* Ancho completo en móviles */
     }
 }
-/*titulos*/
-.Titulo1{
-    text-align: center;
-    font-size: 40px;
-    font-weight: bold;
-    font-family: cursive;
-    margin-left: 13%;
-    color: #FFCC00;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 3px black;
+
+/* Estilos para los títulos */
+.Titulo1 {
+    text-align: center; /* Centra el texto */
+    font-size: 40px; /* Tamaño de fuente */
+    font-weight: bold; /* Texto en negrita */
+    font-family: cursive; /* Fuente cursiva */
+    margin-left: 13%; /* Margen izquierdo */
+    color: #FFCC00; /* Color del texto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra de texto */
+    -webkit-text-stroke: 3px black; /* Borde negro alrededor del texto */
 }
-.Titulo2{
-    text-align: center;
-    font-size: 40px;
-    font-weight: bold;
-    font-family: cursive;
-    margin-left: 3%;
-    color: #FFCC00;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 3px black;
+
+.Titulo2 {
+    text-align: center; /* Centra el texto */
+    font-size: 40px; /* Tamaño de fuente */
+    font-weight: bold; /* Texto en negrita */
+    font-family: cursive; /* Fuente cursiva */
+    margin-left: 3%; /* Margen izquierdo */
+    color: #FFCC00; /* Color del texto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra de texto */
+    -webkit-text-stroke: 3px black; /* Borde negro alrededor del texto */
 }
-/*titulos*/

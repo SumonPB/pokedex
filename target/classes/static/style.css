@@ -1,251 +1,261 @@
-
+/* Estilos generales del cuerpo de la página */
 body {
-    background-image: url('pokemon_sprites/fondo.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
+    background-image: url('pokemon_sprites/fondo.jpg'); /* Fondo de la página */
+    background-size: cover; /* Cubre toda la pantalla */
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
-
+/* Estilos para el título principal */
 .title {
-    font-family: cursive;
-    font-size: 7rem;
-    text-align: center;
-    font-weight: bold;
+    font-family: cursive; /* Fuente cursiva */
+    font-size: 7rem; /* Tamaño de fuente grande */
+    text-align: center; /* Centra el texto */
+    font-weight: bold; /* Texto en negrita */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0%;
-    margin-top: 0%;
-    color: #FFCC00;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 3px black;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-bottom: 0%; /* Sin margen inferior */
+    margin-top: 0%; /* Sin margen superior */
+    color: #FFCC00; /* Color amarillo */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra de texto */
+    -webkit-text-stroke: 3px black; /* Borde negro alrededor del texto */
 }
 
-
-
+/* Estilos para la sección de búsqueda */
 .Busqueda {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 15vh;
-    text-align: center;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 15vh; /* Altura del 15% de la ventana */
+    text-align: center; /* Centra el texto */
 }
 
+/* Estilos para los formularios de búsqueda */
 .Busqueda form {
-    margin: 10px;
+    margin: 10px; /* Margen entre formularios */
 }
 
-.Busqueda input{
-    padding: 10px;
-    margin: 5px;
-    font-size: 16px;
-    border-radius: 10px;
+/* Estilos para los campos de entrada de búsqueda */
+.Busqueda input {
+    padding: 10px; /* Espaciado interno */
+    margin: 5px; /* Margen exterior */
+    font-size: 16px; /* Tamaño de fuente */
+    border-radius: 10px; /* Bordes redondeados */
 }
+
+/* Estilos para los botones de búsqueda */
 .Busqueda button {
-    padding: 10px;
-    margin: 5px;
-    font-size: 16px;
-    border-radius: 10px;
-    background: rgb(37,146,181);
-    background: radial-gradient(circle, rgba(37,146,181,1) 0%, rgba(86,129,202,1) 34%, rgba(83,82,179,1) 50%, rgba(75,115,213,1) 79%, rgba(70,95,252,1) 100%);
-    font-family: cursive;
-    color: white;
+    padding: 10px; /* Espaciado interno */
+    margin: 5px; /* Margen exterior */
+    font-size: 16px; /* Tamaño de fuente */
+    border-radius: 10px; /* Bordes redondeados */
+    background: radial-gradient(circle, rgba(37,146,181,1) 0%, rgba(86,129,202,1) 34%, rgba(83,82,179,1) 50%, rgba(75,115,213,1) 79%, rgba(70,95,252,1) 100%); /* Gradiente de fondo */
+    font-family: cursive; /* Fuente cursiva */
+    color: white; /* Texto blanco */
 }
 
+/* Efecto al pasar el cursor sobre los botones de búsqueda */
 .Busqueda button:hover {
-    background: radial-gradient(circle, rgba(70,95,252,1) 0%, rgba(75,115,213,1) 34%, rgba(83,82,179,1) 50%, rgba(86,129,202,1) 79%, rgba(37,146,181,1) 100%);
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: radial-gradient(circle, rgba(70,95,252,1) 0%, rgba(75,115,213,1) 34%, rgba(83,82,179,1) 50%, rgba(86,129,202,1) 79%, rgba(37,146,181,1) 100%); /* Gradiente invertido */
+    transform: scale(1.05); /* Escala ligeramente el botón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
+/* Estilos para los formularios de búsqueda por ID y nombre */
 .Busqueda_ID,
 .Busqueda_Name {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Organiza los elementos en columna */
 }
 
+/* Estilos para la sección de filtros */
 .Filtros {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 12vh;
-    text-align: center;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 12vh; /* Altura del 12% de la ventana */
+    text-align: center; /* Centra el texto */
 }
 
-
+/* Estilos para el botón de filtros */
 .Filtros button {
-    margin: 15px;
-    font-size: 16px;
-    padding: 20px;
-    border-radius: 10px;
-    background: rgb(37,146,181);
-    background: radial-gradient(circle, rgba(37,146,181,1) 0%, rgba(86,129,202,1) 34%, rgba(83,82,179,1) 50%, rgba(75,115,213,1) 79%, rgba(70,95,252,1) 100%);
-    font-family: cursive;
-    color: white;
-    border: none;
-    transition: all 0.3s ease;
+    margin: 15px; /* Margen exterior */
+    font-size: 16px; /* Tamaño de fuente */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    background: radial-gradient(circle, rgba(37,146,181,1) 0%, rgba(86,129,202,1) 34%, rgba(83,82,179,1) 50%, rgba(75,115,213,1) 79%, rgba(70,95,252,1) 100%); /* Gradiente de fondo */
+    font-family: cursive; /* Fuente cursiva */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    transition: all 0.3s ease; /* Transición suave */
 }
 
-/* Efecto al pasar el cursor */
+/* Efecto al pasar el cursor sobre el botón de filtros */
 .Filtros button:hover {
-    background: radial-gradient(circle, rgba(70,95,252,1) 0%, rgba(75,115,213,1) 34%, rgba(83,82,179,1) 50%, rgba(86,129,202,1) 79%, rgba(37,146,181,1) 100%);
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: radial-gradient(circle, rgba(70,95,252,1) 0%, rgba(75,115,213,1) 34%, rgba(83,82,179,1) 50%, rgba(86,129,202,1) 79%, rgba(37,146,181,1) 100%); /* Gradiente invertido */
+    transform: scale(1.05); /* Escala ligeramente el botón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
+/* Estilos para el contenedor principal del Pokémon */
 .pokemon-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 0 5%;
+    justify-content: space-between; /* Espacio entre elementos */
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+    margin: 0 5%; /* Margen horizontal */
 }
 
+/* Estilos para la cuadrícula de detalles del Pokémon */
 .pokemon-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-    gap: 40px; /* Aumento del espacio entre los elementos */
-    padding: 20px; /* Aumento del padding */
-    border: 2px solid #ccc; /* Hacer el borde más grueso */
-    border-radius: 15px; /* Aumento del radio del borde */
-    background: rgb(43,28,35);
-    background: linear-gradient(90deg, rgba(43,28,35,1) 6%, rgba(85,79,86,1) 32%, rgba(102,100,107,1) 67%, rgba(136,142,149,1) 95%);
-    width: fit-content;
-    height: 100%;
-    margin-left: 5%;
+    gap: 40px; /* Espacio entre elementos */
+    padding: 20px; /* Espaciado interno */
+    border: 2px solid #ccc; /* Borde sólido */
+    border-radius: 15px; /* Bordes redondeados */
+    background: linear-gradient(90deg, rgba(43,28,35,1) 6%, rgba(85,79,86,1) 32%, rgba(102,100,107,1) 67%, rgba(136,142,149,1) 95%); /* Gradiente de fondo */
+    width: fit-content; /* Ancho ajustado al contenido */
+    height: 100%; /* Altura completa */
+    margin-left: 5%; /* Margen izquierdo */
 }
 
-
-/*inicio*/
+/* Estilos para la imagen del Pokémon */
 .pokemon-image {
-    background: rgb(231,233,233);
-    background: radial-gradient(circle, rgba(231,233,233,1) 0%, rgba(224,169,180,1) 40%, rgba(184,20,65,1) 70%, rgba(151,75,213,1) 79%, rgba(70,181,252,1) 100%);
-    border-radius: 100%;
-    height: 100%;
+    background: radial-gradient(circle, rgba(231,233,233,1) 0%, rgba(224,169,180,1) 40%, rgba(184,20,65,1) 70%, rgba(151,75,213,1) 79%, rgba(70,181,252,1) 100%); /* Gradiente de fondo */
+    border-radius: 100%; /* Forma circular */
+    height: 100%; /* Altura completa */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 8%;
-    margin-right: 15%;
-    animation: rotateImage 4s infinite alternate;
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+    margin-top: 8%; /* Margen superior */
+    margin-right: 15%; /* Margen derecho */
+    animation: rotateImage 4s infinite alternate; /* Animación de rotación */
 }
 
+/* Estilos para la imagen dentro del contenedor */
 .pokemon-image img {
-    max-width: 400px;
-    border: 2px solid black;
-    border-color: black;
-    border-radius: 100%;
-    border-image-slice: 100%;
+    max-width: 400px; /* Ancho máximo */
+    border: 2px solid black; /* Borde negro */
+    border-radius: 100%; /* Forma circular */
 }
 
+/* Animación de rotación para la imagen del Pokémon */
 @keyframes rotateImage {
     0% {
-        transform: rotateY(0deg);
+        transform: rotateY(0deg); /* Rotación inicial */
     }
     50% {
-        transform: rotateY(90deg);
+        transform: rotateY(90deg); /* Rotación intermedia */
     }
     100% {
-        transform: rotateY(180deg);
+        transform: rotateY(180deg); /* Rotación final */
     }
 }
 
-/* fin*/
+/* Estilos para los elementos dentro de la cuadrícula de detalles */
 .pokemon-grid div {
     display: flex;
-    justify-content: normal;
-    font-size: 18px;
-    font-family: cursive;
-    color: white;
+    justify-content: normal; /* Alineación normal */
+    font-size: 18px; /* Tamaño de fuente */
+    font-family: cursive; /* Fuente cursiva */
+    color: white; /* Texto blanco */
 }
 
+/* Estilos para el título de la cuadrícula de detalles */
 .pokemon-grid h2 {
-    grid-column: span 2;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 4rem;
-    font-weight: bold;
-    font-family: cursive;
-    color: #FFCC00;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 3px black;
+    grid-column: span 2; /* Ocupa dos columnas */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px; /* Margen inferior */
+    font-size: 4rem; /* Tamaño de fuente grande */
+    font-weight: bold; /* Texto en negrita */
+    font-family: cursive; /* Fuente cursiva */
+    color: #FFCC00; /* Color amarillo */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra de texto */
+    -webkit-text-stroke: 3px black; /* Borde negro alrededor del texto */
 }
 
-/*evoluciones*/
-.pokemon-evolutions{
-    margin-top: 0%;
-    margin-left: 7%;
+/* Estilos para la sección de evoluciones */
+.pokemon-evolutions {
+    margin-top: 0%; /* Sin margen superior */
+    margin-left: 7%; /* Margen izquierdo */
 }
+
+/* Estilos para la lista de evoluciones */
 .pokemon-evolutions ul {
     display: flex;
-    gap: 60px;
-    padding: 0;
-    list-style-type: none;
+    gap: 60px; /* Espacio entre elementos */
+    padding: 0; /* Sin relleno */
+    list-style-type: none; /* Sin viñetas */
 }
 
+/* Estilos para cada elemento de la lista de evoluciones */
 .pokemon-evolutions li {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 1.6rem;
-    font-family: cursive;
-    color: #FFCC00;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 1px black;
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    text-align: center; /* Centra el texto */
+    font-size: 1.6rem; /* Tamaño de fuente */
+    font-family: cursive; /* Fuente cursiva */
+    color: #FFCC00; /* Color amarillo */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra de texto */
+    -webkit-text-stroke: 1px black; /* Borde negro alrededor del texto */
 }
-.EvoName{
+
+/* Estilos para el título de la sección de evoluciones */
+.EvoName {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 1.8rem;
-    font-family: cursive;
-    font-weight: bold;
-    color: white;
-    -webkit-text-stroke: 1px black;
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    text-align: center; /* Centra el texto */
+    font-size: 1.8rem; /* Tamaño de fuente */
+    font-family: cursive; /* Fuente cursiva */
+    font-weight: bold; /* Texto en negrita */
+    color: white; /* Texto blanco */
+    -webkit-text-stroke: 1px black; /* Borde negro alrededor del texto */
 }
 
+/* Estilos para las imágenes de las evoluciones */
 .pokemon-evolutions img {
-    border: 2px solid black;
-    border-color: black;
-    max-width: 300px;
+    border: 2px solid black; /* Borde negro */
+    max-width: 300px; /* Ancho máximo */
 }
-/*sig-atras*/
+
+/* Estilos para la animación de desvanecimiento */
 .fade-out {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    pointer-events: none;
+    opacity: 0; /* Opacidad cero */
+    transform: scale(0.9); /* Escala reducida */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transición suave */
+    pointer-events: none; /* Desactiva interacciones */
 }
 
-
+/* Estilos para la sección de navegación (anterior y siguiente) */
 .Camino {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 12vh;
-    text-align: center;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 12vh; /* Altura del 12% de la ventana */
+    text-align: center; /* Centra el texto */
 }
+
+/* Estilos para los botones de navegación */
 .Camino button {
-    margin: 15px;
-    font-size: 16px;
-    padding: 20px;
-    border-radius: 10px;
-    background: rgb(37,146,181);
-    background: radial-gradient(circle, rgba(37,146,181,1) 0%, rgba(86,129,202,1) 34%, rgba(83,82,179,1) 50%, rgba(75,115,213,1) 79%, rgba(70,95,252,1) 100%);
-    font-family: cursive;
-    color: white;
-    border: none;
-    transition: all 0.3s ease;
+    margin: 15px; /* Margen exterior */
+    font-size: 16px; /* Tamaño de fuente */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    background: radial-gradient(circle, rgba(37,146,181,1) 0%, rgba(86,129,202,1) 34%, rgba(83,82,179,1) 50%, rgba(75,115,213,1) 79%, rgba(70,95,252,1) 100%); /* Gradiente de fondo */
+    font-family: cursive; /* Fuente cursiva */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    transition: all 0.3s ease; /* Transición suave */
 }
 
-
+/* Efecto al pasar el cursor sobre los botones de navegación */
 .Camino button:hover {
-    background: radial-gradient(circle, rgba(70,95,252,1) 0%, rgba(75,115,213,1) 34%, rgba(83,82,179,1) 50%, rgba(86,129,202,1) 79%, rgba(37,146,181,1) 100%);
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: radial-gradient(circle, rgba(70,95,252,1) 0%, rgba(75,115,213,1) 34%, rgba(83,82,179,1) 50%, rgba(86,129,202,1) 79%, rgba(37,146,181,1) 100%); /* Gradiente invertido */
+    transform: scale(1.05); /* Escala ligeramente el botón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }

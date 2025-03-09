@@ -1,138 +1,98 @@
 package ec.edu.uce.pokedex.jpa;
 
 import jakarta.persistence.*;
-
 import java.util.List;
 
+/**
+ * Clase Pokemon
+ *
+ * Representa la entidad Pokémon en la base de datos.
+ * Esta clase mapea la tabla "Pokemon" y define las relaciones con otras entidades como Types, Habitat, Region y Abilities.
+ */
 @Entity
 @Table(name = "Pokemon")
 public class Pokemon {
 
     @Id
     @Column(name = "id")
-    private int id;
+    private int id; // Identificador único del Pokémon.
 
     @Column(name = "pokemon_name")
-    private String name;
+    private String name; // Nombre del Pokémon.
 
     @Column(name = "pokemon_heigth")
-    private int height;
+    private int height; // Altura del Pokémon.
 
     @Column(name = "pokemon_weight")
-    private int weight;
+    private int weight; // Peso del Pokémon.
 
     @Column(name = "pokemon_stat_hp")
-    private double stats_hp;
+    private double stats_hp; // Puntos de salud (HP) del Pokémon.
 
     @Column(name = "pokemon_stat_attack")
-    private double stats_attack;
+    private double stats_attack; // Puntos de ataque del Pokémon.
 
     @Column(name = "pokemon_stat_defense")
-    private double stats_defense;
+    private double stats_defense; // Puntos de defensa del Pokémon.
 
     @Column(name = "pokemon_stat_special_attack")
-    private double stats_special_attack;
+    private double stats_special_attack; // Puntos de ataque especial del Pokémon.
 
     @Column(name = "pokemon_special_defense")
-    private double stats_special_defense;
+    private double stats_special_defense; // Puntos de defensa especial del Pokémon.
 
     @Column(name = "pokemon_stat_speed")
-    private double stats_speed;
+    private double stats_speed; // Puntos de velocidad del Pokémon.
 
     @Column(name = "pokemon_stat_accuracy")
-    private double stats_accuracy;
+    private double stats_accuracy; // Precisión del Pokémon.
 
     @Column(name = "pokemon_stat_evasion")
-    private double stats_evasion;
+    private double stats_evasion; // Evasión del Pokémon.
 
     @ElementCollection
     @Column(name = "pokemon_envoles")
-    private List<Integer> envoles;  // Aquí no es necesario el @ManyToMany, ya que es una lista simple de enteros.
+    private List<Integer> envoles; // Lista de IDs de las evoluciones del Pokémon.
 
-
-    // Relación Many-to-Many con Types
+    // Relación Many-to-Many con la entidad Types.
     @ManyToMany
     @JoinTable(
             name = "pokemon_types",
             joinColumns = @JoinColumn(name = "pokemon_id"),
             inverseJoinColumns = @JoinColumn(name = "type_id")
     )
-    private List<Types> types;  // Relación Many-to-Many con la entidad Types
+    private List<Types> types; // Lista de tipos asociados al Pokémon.
 
+    // Relación Many-to-One con la entidad Habitat.
     @ManyToOne
-    @JoinColumn(name = "habitat_id") // Clave foránea
-    private Habitat habitat;  // Relación Many-to-One con Habitat
+    @JoinColumn(name = "habitat_id")
+    private Habitat habitat; // Hábitat asociado al Pokémon.
 
-
+    // Relación Many-to-Many con la entidad Region.
     @ManyToMany
     @JoinTable(
             name = "pokemon_region",
             joinColumns = @JoinColumn(name = "pokemon_id"),
             inverseJoinColumns = @JoinColumn(name = "region_id")
     )
-    private List<Region> regions; // Relación Many-to-Many con Region
+    private List<Region> regions; // Lista de regiones asociadas al Pokémon.
 
-   /* @ManyToMany
-    @JoinTable(
-            name = "pokemon_moves",
-            joinColumns = @JoinColumn(name = "pokemon_id"),
-            inverseJoinColumns = @JoinColumn(name = "move_id")
-    )
-    private List<Move> moves; // Relación Many-to-Many con Move
-        public List<Move> getMoves() {
-        return moves;
-    }
-
-    public void setMoves(List<Move> moves) {
-        this.moves = moves;
-    }
-    */
-
+    // Relación Many-to-Many con la entidad Abilities.
     @ManyToMany
     @JoinTable(
             name = "pokemon_abilities",
             joinColumns = @JoinColumn(name = "pokemon_id"),
             inverseJoinColumns = @JoinColumn(name = "ability_id")
     )
-    private List<Abilities> abilities; // Relación Many-to-Many con Abilities
+    private List<Abilities> abilities; // Lista de habilidades asociadas al Pokémon.
 
-
-
-
-
-
-    public List<Abilities> getAbilities() {
-        return abilities;
+    /**
+     * Constructor por defecto.
+     */
+    public Pokemon() {
     }
 
-    public void setAbilities(List<Abilities> abilities) {
-        this.abilities = abilities;
-    }
-
-
-    public List<Region> getRegions() {
-        return regions;
-    }
-
-    public void setRegions(List<Region> regions) {
-        this.regions = regions;
-    }
-
-    public Habitat getHabitat() {
-        return habitat;
-    }
-
-    public void setHabitat(Habitat habitat) {
-        this.habitat = habitat;
-    }
-
-    public List<Types> getTypes() {
-        return types;
-    }
-
-    public void setTypes(List<Types> types) {
-        this.types = types;
-    }
+    // Métodos getters y setters para cada atributo.
 
     public int getId() {
         return id;
@@ -238,8 +198,35 @@ public class Pokemon {
         this.envoles = envoles;
     }
 
-    public Pokemon() {
+    public List<Types> getTypes() {
+        return types;
     }
 
+    public void setTypes(List<Types> types) {
+        this.types = types;
+    }
 
+    public Habitat getHabitat() {
+        return habitat;
+    }
+
+    public void setHabitat(Habitat habitat) {
+        this.habitat = habitat;
+    }
+
+    public List<Region> getRegions() {
+        return regions;
+    }
+
+    public void setRegions(List<Region> regions) {
+        this.regions = regions;
+    }
+
+    public List<Abilities> getAbilities() {
+        return abilities;
+    }
+
+    public void setAbilities(List<Abilities> abilities) {
+        this.abilities = abilities;
+    }
 }

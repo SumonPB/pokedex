@@ -4,17 +4,24 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+/**
+ * Clase Types
+ *
+ * Representa la entidad Types en la base de datos..
+ *  * Esta clase mapea la tabla "Types" y define las relacion con Pokemon
+ */
 @Entity
 @Table (name = "Habitat")
 public class Habitat {
 
     @Id @Column (name = "id")
-    private int id;
+    private int id; // Identificador único del Habitat
     @Column (name = "name_habitat")
-    private String name;
+    private String name; // Nombre del habitat
 
+    // Relacion One-To-Many con la entidad Pokemon
    @OneToMany(mappedBy = "habitat", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Pokemon> pokemons;  // Un hábitat tiene varios Pokémon
+    private List<Pokemon> pokemons;
 
     public List<Pokemon> getPokemons() {
         return pokemons;
@@ -23,7 +30,9 @@ public class Habitat {
     public void setPokemons(List<Pokemon> pokemons) {
         this.pokemons = pokemons;
     }
-
+    /**
+     * Constructor por defecto.
+     */
     public Habitat() { }
 
     public Habitat(int id, String name) {
